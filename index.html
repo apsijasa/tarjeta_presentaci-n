@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Presentación Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-header">
+            <div class="threads-container" id="threadsAnimation"></div>
+            <button class="dark-mode-toggle" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="profile-container">
+                <div class="profile-info">
+                    <h1 class="name">Tu Nombre</h1>
+                    <p class="title">Desarrollador Web & Diseñador UX/UI</p>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> correo@ejemplo.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+                        <li><i class="fas fa-globe"></i> www.tusitio.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="about">Sobre mí</button>
+            <button class="tab-btn" data-tab="projects">Proyectos</button>
+            <button class="tab-btn" data-tab="social">Redes Sociales</button>
+            <button class="tab-btn" data-tab="videos">Videos</button>
+            <button class="tab-btn" data-tab="qr">Código QR</button>
+        </div>
+        
+        <div id="about" class="tab-content active">
+            <h2>Sobre mí</h2>
+            <p>¡Hola! Soy un desarrollador web y diseñador UX/UI apasionado por crear experiencias digitales atractivas e intuitivas. Me especializo en HTML, CSS, JavaScript y frameworks modernos como React y Vue.js.</p>
+            <br>
+            <p>Mi objetivo es combinar diseño y funcionalidad para desarrollar productos que no solo se vean bien, sino que también brinden una excelente experiencia al usuario.</p>
+            <br>
+            <h3>Habilidades</h3>
+            <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Vue.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">Responsive Design</span>
+                <span class="tag">Git</span>
+            </div>
+        </div>
+        
+        <div id="projects" class="tab-content">
+            <h2>Mis Proyectos</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="/api/placeholder/250/150" alt="Proyecto 1" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Portfolio Personal</h3>
+                        <p class="project-description">Sitio web portfolio con diseño minimalista y animaciones suaves para mostrar mis proyectos.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/250/150" alt="Proyecto 2" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">App de Gestión</h3>
+                        <p class="project-description">Aplicación web para gestionar tareas y proyectos con sistema de usuarios y roles.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/250/150" alt="Proyecto 3" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">E-commerce</h3>
+                        <p class="project-description">Tienda en línea con catálogo de productos, carrito de compras y pasarela de pagos.</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Dashboard Analítico</h3>
+                        <p class="project-description">Panel de control con visualización de datos estadísticos mediante gráficos interactivos.</p>
+                        <div class="project-tags">
+                            <span class="tag">D3.js</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Express</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="social" class="tab-content">
+            <h2>Mis Redes Sociales</h2>
+            <div class="social-container">
+                <a href="#" class="social-link" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" title="Behance">
+                    <i class="fab fa-behance"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div id="videos" class="tab-content">
+            <h2>Mis Videos</h2>
+            <div class="videos-container">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-details">
+                        <h3 class="video-title">Tutorial de HTML y CSS</h3>
+                        <p class="project-description">Aprende los fundamentos del desarrollo web con este tutorial paso a paso.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-details">
+                        <h3 class="video-title">Curso de JavaScript</h3>
+                        <p class="project-description">Domina JavaScript con esta serie de videos desde nivel básico hasta avanzado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="qr" class="tab-content">
+            <h2>Mi Código QR</h2>
+            <div class="qr-section">
+                <p>Escanea este código QR para guardar mi información de contacto:</p>
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                </div>
+                <button class="btn" id="downloadQR">Descargar Código QR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="threads.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
