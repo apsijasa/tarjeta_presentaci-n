@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Piscina Municipal San Pedro de Atacama - Andrés Psijas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #3498db;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 20L20 0L40 20L20 40z"/%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 5px 15px;
+            border-radius: 30px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .location-badge i {
+            margin-right: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .three-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .image-showcase {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tech-tag {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .diagnosis-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .diagnosis-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .diagnosis-card h3 i {
+            margin-right: 10px;
+            color: var(--color-accent);
+        }
+
+        .diagnosis-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .diagnosis-card ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .diagnosis-card ul li:before {
+            content: "•";
+            color: var(--color-accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .statistics-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .statistic-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .statistic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .statistic-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .statistic-label {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: rgba(52, 152, 219, 0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 5px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-left::after {
+            right: -12px;
+        }
+
+        .timeline-right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .timeline-date {
+            display: inline-block;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .two-columns, .three-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-left::after, .timeline-right::after {
+                left: 18px;
+            }
+
+            .timeline-right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-pattern"></div>
+        <div class="header-content">
+            <h1>Piscina Municipal de San Pedro de Atacama</h1>
+            <p>Proyecto de rehabilitación integral y conversión a piscina semiolímpica para entrenamiento en altura</p>
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i> San Pedro de Atacama, Región de Antofagasta, Chile - 2.450 msnm
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="project-nav">
+            <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+        </div>
+
+        <section class="project-section">
+            <h2>Visión General del Proyecto</h2>
+            <div class="two-columns">
+                <div class="content-card">
+                    <h3>Descripción del Proyecto</h3>
+                    <p>El proyecto consiste en la rehabilitación integral de la Piscina Municipal de San Pedro de Atacama, una instalación deportiva cerrada durante aproximadamente 10 años debido a daños estructurales ocasionados por un aluvión.</p>
+                    <p>La intervención busca recuperar el funcionamiento completo de la piscina, realizando los ajustes estructurales y de equipamiento necesarios para su certificación como piscina semiolímpica para entrenamiento en altura, aprovechando su ubicación a 2.450 metros sobre el nivel del mar.</p>
+                    <p>Este proyecto tiene el potencial de convertirse en la única piscina semiolímpica de entrenamiento en altura a nivel nacional, lo que la haría ampliamente atractiva tanto para equipos deportivos nacionales como internacionales.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Piscina Prefabricada</span>
+                        <span class="tech-tag">Acero Inoxidable</span>
+                        <span class="tech-tag">Energía Fotovoltaica</span>
+                        <span class="tech-tag">Eficiencia Hídrica</span>
+                        <span class="tech-tag">Eficiencia Energética</span>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="/api/placeholder/600/400" alt="Piscina Municipal de San Pedro de Atacama - Estado actual">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Desafíos y Oportunidades</h2>
+            <p>El proyecto representa un desafío arquitectónico, técnico y logístico significativo debido a su ubicación en el desierto más árido del mundo. Sin embargo, esta misma condición genera oportunidades únicas:</p>
+            <div class="statistics-container">
+                <div class="statistic-card">
+                    <div class="statistic-value">2.450</div>
+                    <div class="statistic-label">Metros sobre nivel del mar</div>
+                </div>
+                <div class="statistic-card">
+                    <div class="statistic-value">25</div>
+                    <div class="statistic-label">Metros de largo (estándar semiolímpico)</div>
+                </div>
+                <div class="statistic-card">
+                    <div class="statistic-value">6</div>
+                    <div class="statistic-label">Carriles de natación</div>
+                </div>
+                <div class="statistic-card">
+                    <div class="statistic-value">1.400</div>
+                    <div class="statistic-label">Capacidad diaria (personas)</div>
+                </div>
+            </div>
+            <div class="content-card" style="margin-top: 30px;">
+                <h3>Oportunidades del Proyecto</h3>
+                <ul style="list-style-type: none; margin-left: 0;">
+                    <li style="margin-bottom: 15px;">
+                        <i class="fas fa-medal" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        <strong>Entrenamiento deportivo de alto nivel:</strong> Piscina semiolímpica en altura, ideal para equipos nacionales e internacionales que buscan entrenamiento especializado.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <i class="fas fa-heart" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        <strong>Beneficio comunitario:</strong> Actividades para todas las edades, desde aprendizaje de natación para niños hasta terapias para adultos mayores.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <i class="fas fa-globe" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        <strong>Turismo deportivo:</strong> Posicionamiento de San Pedro de Atacama como destino de turismo deportivo a nivel latinoamericano.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <i class="fas fa-sun" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        <strong>Sostenibilidad energética:</strong> Implementación de sistemas fotovoltaicos en una región con condiciones ideales para energía solar.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Diagnóstico Técnico</h2>
+            <div class="three-columns">
+                <div class="diagnosis-card">
+                    <h3><i class="fas fa-building"></i> Arquitectura</h3>
+                    <p>La estructura principal de la pileta se encuentra en buenas condiciones, pero requiere importantes modificaciones para optimizar su funcionamiento:</p>
+                    <ul>
+                        <li>Eliminar sobre loza existente para recuperar profundidad original de 1,60m</li>
+                        <li>Eliminar sistema de skimmers ineficiente y reemplazar por recuperación perimetral</li>
+                        <li>Modificar bordes y esquinas redondeadas para optimizar circulación de agua</li>
+                        <li>Implementar sistema de ventilación cruzada y deshumidificación</li>
+                        <li>Adecuar baños y camarines para accesibilidad universal</li>
+                    </ul>
+                </div>
+                <div class="diagnosis-card">
+                    <h3><i class="fas fa-bolt"></i> Sistema Eléctrico</h3>
+                    <p>El diagnóstico eléctrico revela la necesidad de actualizaciones completas:</p>
+                    <ul>
+                        <li>Cambio y ampliación del tablero general</li>
+                        <li>Aumento de capacidad del empalme eléctrico</li>
+                        <li>Reemplazo del sistema de paneles fotovoltaicos y estructura portante</li>
+                        <li>Implementación de sistema de bombas de calor eléctrico</li>
+                        <li>Reemplazo de iluminación por tecnología LED de bajo consumo</li>
+                        <li>Incorporación de sistemas de deshumidificación portátiles</li>
+                    </ul>
+                </div>
+                <div class="diagnosis-card">
+                    <h3><i class="fas fa-tint"></i> Sistema Hidráulico</h3>
+                    <p>El sistema hidráulico presenta deficiencias estructurales en su diseño:</p>
+                    <ul>
+                        <li>Construcción de piscina de rebalse con capacidad adecuada</li>
+                        <li>Implementación de zanjado perimetral para recuperación de agua</li>
+                        <li>Instalación de 10 retornos verticales a 30cm bajo nivel de agua</li>
+                        <li>Implementación de 2 cámaras de succión en la parte más profunda</li>
+                        <li>Reemplazo completo del sistema de filtrado, bombas y cuarzo</li>
+                        <li>Sistema de temperado por bombas de calor con tecnología inverter</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Solución Técnica</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3>Piscina Prefabricada</h3>
+                    <p>Instalación de vaso prefabricado en acero inoxidable homologado por World Aquatics, similar a los utilizados en los Juegos Olímpicos de París 2024 y Juegos Panamericanos de Perú.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Sistema Fotovoltaico</h3>
+                    <p>Implementación de planta fotovoltaica de 59,4 kWp para la piscina (108 paneles) y 105,6 kWp para la multicancha (192 paneles), con inversores HUAWEI y sistema de monitoreo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Sistema de Climatización</h3>
+                    <p>Instalación de 2 bombas de calor aerotérmicas con tecnología Inverter de 136 kWt cada una para mantener la temperatura óptima de 27°C en la piscina.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Sistema Hidráulico Eficiente</h3>
+                    <p>Diseño optimizado para recuperar el 98% del agua de la piscina, con sistema de filtrado de alta eficiencia y circulación completa cada 5 horas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Iluminación LED</h3>
+                    <p>Reemplazo de todos los sistemas de iluminación por tecnología LED: 12 luminarias de 200W para la piscina, 6 luminarias de 100W para el gimnasio y 12 para la multicancha.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <h3>Control de Humedad</h3>
+                    <p>Implementación de 10 deshumidificadores portátiles con capacidad de 103 L/día, distribuidos estratégicamente alrededor de la piscina para controlar la condensación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Cronograma del Proyecto</h2>
+            <p>El proyecto está programado para completarse en 10 meses, divididos en 5 etapas principales:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Etapa 1: 1 mes</span>
+                        <h3>Levantamiento Planimétrico</h3>
+                        <p>Levantamiento planimétrico del edificio existente en escala 1:200 y formato Auto CAD con todas las capas necesarias de información.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Etapa 2: 2 meses</span>
+                        <h3>Desarrollo de Proyectos</h3>
+                        <p>Desarrollo de proyectos de arquitectura, cálculo, eléctrico, sanitario, climatización, sistema hidráulico y temperado de la piscina.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Etapa 3: 1 mes</span>
+                        <h3>Validación del Proyecto</h3>
+                        <p>Validación de la memoria, planimetría y especificaciones técnicas con la Contraparte Técnica Municipal.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Etapa 4: 7 meses</span>
+                        <h3>Ejecución de Obras</h3>
+                        <p>Instalación y ejecución de todas las obras planificadas, incluyendo la instalación del vaso prefabricado y sistemas complementarios.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Etapa 5: 1 mes</span>
+                        <h3>Entrega y Certificaciones</h3>
+                        <p>Entrega final, recepción municipal y obtención de certificaciones, incluyendo la homologación como piscina semiolímpica en altura.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Impacto del Proyecto</h2>
+            <div class="two-columns">
+                <div class="content-card">
+                    <h3>Beneficios para la Comunidad</h3>
+                    <p>La recuperación de la Piscina Municipal tendrá un impacto significativo en San Pedro de Atacama:</p>
+                    <ul style="margin-left: 20px; margin-top: 15px;">
+                        <li>Capacidad para recibir hasta 1.400 personas diarias de todas las edades</li>
+                        <li>Actividades preventivas y terapéuticas para adultos mayores</li>
+                        <li>Espacio deportivo para adultos y jóvenes de la comunidad</li>
+                        <li>Programas de aprendizaje de natación para niños</li>
+                        <li>Generación de empleo local para operación y mantenimiento</li>
+                        <li>Instalación deportiva operativa durante todo el año</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Proyección Deportiva</h3>
+                    <p>El proyecto posicionará a San Pedro de Atacama como un destino de turismo deportivo:</p>
+                    <ul style="margin-left: 20px; margin-top: 15px;">
+                        <li>Única piscina semiolímpica de entrenamiento en altura a nivel nacional</li>
+                        <li>Centro de entrenamiento para equipos nacionales e internacionales</li>
+                        <li>Alternativa local para equipos que actualmente viajan a Colombia para entrenamientos en altura</li>
+                        <li>Posibilidad de albergar competencias regionales y nacionales</li>
+                        <li>Complemento ideal a la infraestructura hotelera y turística existente</li>
+                        <li>Desarrollo del turismo deportivo como nuevo nicho económico</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button"><i class="fas fa-file-pdf"></i> Descargar Informe Completo</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Andrés Psijas - Todos los derechos reservados</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@grupoatlas.cl">Contacto</a>
+        </div>
+    </footer>
+</body>
+</html>

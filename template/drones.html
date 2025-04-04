@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de Drones Impresos en 3D</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #394867;
+            --secondary-color: #4682B4;
+            --accent-color: #9BA4B5;
+            --light-color: #F1F6F9;
+            --dark-color: #212A3E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(33, 42, 62, 0.8), rgba(33, 42, 62, 0.8)), url('assets/drone-header.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .feature-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -16px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 5px solid var(--light-color);
+        }
+        
+        .team-member h5 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .team-member p {
+            color: var(--accent-color);
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .specs-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: left;
+        }
+        
+        .specs-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .specs-table tr:hover {
+            background-color: #ddd;
+        }
+        
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+        }
+        
+        .cost-category {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .cost-description {
+            flex: 2;
+            color: var(--dark-color);
+        }
+        
+        .cost-value {
+            flex: 1;
+            text-align: right;
+            color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .business-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        
+        .business-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Proyecto de Drones Impresos en 3D</h1>
+            <p class="lead">Una visión moderna para la protección de sus activos</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+    </div>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Project Overview -->
+        <section class="mb-5">
+            <h2 class="section-title">El Proyecto</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Nuestro proyecto busca desarrollar un drone funcional utilizando tecnología de impresión 3D, combinando diseño moderno, componentes electrónicos de alta calidad e inteligencia artificial para crear una solución versátil de vigilancia y monitoreo.</p>
+                    
+                    <h4 class="mt-4 mb-3">Objetivos Principales:</h4>
+                    <ul>
+                        <li>Fabricar un drone funcional utilizando impresión 3D</li>
+                        <li>Presentar el primer diseño multifuncional</li>
+                        <li>Conocer la electrónica del drone y componentes</li>
+                        <li>Integración de IA para reconocimiento básico</li>
+                        <li>Determinar costos y tiempos de construcción</li>
+                        <li>Establecer la cadena de suministros de componentes electrónicos</li>
+                        <li>Identificar obstáculos de fabricación</li>
+                        <li>Crear un modelo de negocio viable</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/drone-concept.jpg" alt="Concepto del Drone" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features & Benefits -->
+        <section class="mb-5">
+            <h2 class="section-title">Características y Beneficios</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h4>Fabricación con Impresión 3D</h4>
+                        <p>Utilizamos tecnología de impresión 3D para crear componentes personalizados y de bajo peso, permitiendo un diseño modular y fácil mantenimiento.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h4>Larga Duración de Vuelo</h4>
+                        <p>Diseñado para vuelos prolongados con una duración de batería que supera las 4 horas, ideal para misiones de vigilancia y monitoreo continuo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Integración con IA</h4>
+                        <p>Incorporamos sistemas de inteligencia artificial para reconocimiento de objetos y análisis de datos en tiempo real.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Fácil Mantenimiento</h4>
+                        <p>Componentes modulares que permiten una sustitución rápida y sencilla, reduciendo el tiempo de inactividad.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h4>Sensores Múltiples</h4>
+                        <p>Capacidad para incorporar diferentes tipos de sensores según las necesidades específicas de cada misión.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h4>Diseño Aerodinámico</h4>
+                        <p>Estructura optimizada para eficiencia aerodinámica, basada en análisis CFD y pruebas de vuelo reales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs -->
+        <section class="mb-5">
+            <h2 class="section-title">Especificaciones Técnicas</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-3">Datos Generales del Drone</h4>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Especificación</th>
+                            <th>Valor</th>
+                        </tr>
+                        <tr>
+                            <td>Envergadura</td>
+                            <td>1340 mm</td>
+                        </tr>
+                        <tr>
+                            <td>Área alar</td>
+                            <td>26.5 dm²</td>
+                        </tr>
+                        <tr>
+                            <td>Longitud</td>
+                            <td>990 mm</td>
+                        </tr>
+                        <tr>
+                            <td>Centro de Gravedad</td>
+                            <td>60 mm desde el borde de ataque</td>
+                        </tr>
+                        <tr>
+                            <td>Peso Total (AUW)</td>
+                            <td>1500-3000 g</td>
+                        </tr>
+                        <tr>
+                            <td>Velocidad de Crucero Óptima</td>
+                            <td>60-70 km/h</td>
+                        </tr>
+                        <tr>
+                            <td>Perfil Alar</td>
+                            <td>Eppler E205</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">Componentes Electrónicos Recomendados</h4>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Componente</th>
+                            <th>Descripción</th>
+                        </tr>
+                        <tr>
+                            <td>Motores</td>
+                            <td>T-Motor F60 1750KV / T-Motor F90 1300KV</td>
+                        </tr>
+                        <tr>
+                            <td>Hélices</td>
+                            <td>7x4 / 7x5 / 7x6 (una CW, una CCW)</td>
+                        </tr>
+                        <tr>
+                            <td>Controlador de Vuelo</td>
+                            <td>Speedybee F405 Wing o similar con Mavlink</td>
+                        </tr>
+                        <tr>
+                            <td>GPS</td>
+                            <td>Matek M10Q o similar con brújula</td>
+                        </tr>
+                        <tr>
+                            <td>Servos</td>
+                            <td>4x Corona 929MG Metal Gear o similar</td>
+                        </tr>
+                        <tr>
+                            <td>ESC</td>
+                            <td>2x BlHeliS 40A</td>
+                        </tr>
+                        <tr>
+                            <td>Batería</td>
+                            <td>4S (máx. 4S6P 21Ah Li-Ion) / 3S compatible</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Phases -->
+        <section class="mb-5">
+            <h2 class="section-title">Fases de Desarrollo</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>Fase 1: Diseño</h3>
+                        <p><strong>Concepto:</strong> Desarrollo del concepto del drone funcional para largas horas de vuelo con capacidad para diferentes sensores.</p>
+                        <p><strong>Aerodinámica:</strong> Análisis y optimización aerodinámica mediante CFD.</p>
+                        <p><strong>Diseño 3D:</strong> Creación del diseño completo para su posterior impresión.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3>Fase 2: Impresión e Implementación Técnica</h3>
+                        <p><strong>Impresión:</strong> Fabricación de todas las piezas mediante impresión 3D.</p>
+                        <p><strong>Electrónica:</strong> Instalación de componentes electrónicos y configuración.</p>
+                        <p><strong>Software:</strong> Desarrollo e implementación del software de control y IA.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3>Fase 3: Capacitación del Personal</h3>
+                        <p><strong>Pilotos:</strong> Formación de pilotos para manejo del drone.</p>
+                        <p><strong>Analistas:</strong> Capacitación para interpretación de datos aéreos.</p>
+                        <p><strong>Protocolos:</strong> Implementación de protocolos de actuación y vuelo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Timeline -->
+        <section class="mb-5">
+            <h2 class="section-title">Cronograma del Proyecto (GANTT)</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Descripción</th>
+                            <th>Duración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Impresión</strong></td>
+                            <td>Envío a empresa externa de impresión con las especificaciones técnicas</td>
+                            <td>1 semana hábil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ensamblado</strong></td>
+                            <td>Ensamblado del drone de esqueleto en general</td>
+                            <td>1 semana hábil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CFG Electrónica y software</strong></td>
+                            <td>Instalación de electrónica, rotores, cámaras y sensores dentro del drone</td>
+                            <td>2 semanas hábiles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Testing</strong></td>
+                            <td>Pruebas de componentes electrónicos y software</td>
+                            <td>1 semana hábil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capacitación</strong></td>
+                            <td>Capacitación de prueba con piloto de drone</td>
+                            <td>1 semana hábil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Presentación de prototipo</strong></td>
+                            <td>Presentación y vuelo oficial de prueba</td>
+                            <td>1 día (3 de junio)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Team Members -->
+        <section class="mb-5">
+            <h2 class="section-title">Equipo del Proyecto</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="assets/team-coordinator.jpg" alt="Coordinador">
+                        <h5>Andrés Psijas</h5>
+                        <p>Coordinación y Ensamblado</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="assets/team-engineer.jpg" alt="Ingeniero">
+                        <h5>Alejandro González</h5>
+                        <p>Ing. Civil Electrónico UTEM</p>
+                        <p>Ensamblado, Electrónica y Software</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="assets/team-printing.jpg" alt="Impresión">
+                        <h5>Empresa Imperio 3D</h5>
+                        <p>Servicios de Impresión 3D</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Costs -->
+        <section class="mb-5">
+            <h2 class="section-title">Costos del Proyecto</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="cost-item">
+                                <div class="cost-category">Licencia de software</div>
+                                <div class="cost-description">Software de diseño, consultoría aerodinámica</div>
+                                <div class="cost-value">$500.000</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Impresión</div>
+                                <div class="cost-description">Materiales, servicio de impresión 3D</div>
+                                <div class="cost-value">$200.000</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Materiales y componentes</div>
+                                <div class="cost-description">Componentes, sensores, electrónica en general y baterías</div>
+                                <div class="cost-value">$1.500.000</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Mano de obra</div>
+                                <div class="cost-description">Armado, instalaciones eléctricas, electrónica, generación de software</div>
+                                <div class="cost-value">$3.100.000</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Capacitación</div>
+                                <div class="cost-description">Pilotos, analistas</div>
+                                <div class="cost-value">sin costo</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Presentación</div>
+                                <div class="cost-description">Testing oficial del drone</div>
+                                <div class="cost-value">$100.000</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-category">Total</div>
+                                <div class="cost-description"></div>
+                                <div class="cost-value">$5.400.000 neto</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Model -->
+        <section class="mb-5">
+            <h2 class="section-title">Modelo de Negocio</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Operatividad y Software</h4>
+                        <ul>
+                            <li>Venta de licencias para acceso a datos generados por el drone</li>
+                            <li>Datos variables según zonas de operación</li>
+                            <li>Operatividad completa en el caso de clientes privados</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h4>Mantención</h4>
+                        <ul>
+                            <li>Revisión y mantención de drones para continuidad operativa</li>
+                            <li>Electrónica para presentar upgrades cuando sea necesario</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <i class="fas fa-drone"></i>
+                        </div>
+                        <h4>Drones Personalizados</h4>
+                        <ul>
+                            <li>Diseño de drones a medida según especificaciones del cliente</li>
+                            <li>Diversos modelos basados en experiencia y variedad del mercado</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="business-card">
+                        <div class="business-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Clientes Potenciales</h4>
+                        <ul>
+                            <li>Defensa (cumpliendo ciertos requisitos)</li>
+                            <li>Municipios (venta y mantención de drones)</li>
+                            <li>Minería, agricultura y otros sectores industriales</li>
+                            <li>Monitoreo de incendios y registro de siniestros</li>
+                            <li>Seguimiento de camiones de alta seguridad o mercancías valiosas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Proyecto de Drones Impresos en 3D</h4>
+                    <p>Una visión moderna para la protección de sus activos</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contacto</h5>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i> info@proyectodrones.com<br>
+                        <i class="fas fa-phone me-2"></i> +56 9 1234 5678
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4 border-light">
+            <div class="text-center">
+                <p>&copy; 2025 Proyecto de Drones Impresos en 3D. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

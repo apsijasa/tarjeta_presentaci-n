@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto: Infraestructura - Andrés Psijas</title>
+    <title>Proyecto: Eficiencia Energética Piscina Cerrillos - Andrés Psijas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --color-primary: #34495e;
             --color-secondary: #2c3e50;
-            --color-accent: #27ae60;
+            --color-accent: #3498db;
             --color-light: #fbfcfc;
             --color-dark: #212529;
             --border-radius: 15px;
@@ -43,13 +46,14 @@
             overflow: hidden;
         }
 
-        .header-pattern {
+        .header-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="10" cy="10" r="3"/%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.2;
             z-index: 0;
         }
 
@@ -70,6 +74,15 @@
             opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        .header .brand {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
         }
 
         .container {
@@ -114,46 +127,47 @@
             border-bottom: 2px solid #eee;
         }
 
-        .grid-layout {
+        .project-overview {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .content-card {
+        @media (max-width: 768px) {
+            .project-overview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-description {
             background-color: white;
             border-radius: var(--border-radius);
             padding: 30px;
             box-shadow: var(--shadow);
         }
 
-        .content-card h3 {
-            color: var(--color-primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .image-showcase {
+        .project-image {
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
         }
 
-        .image-showcase img {
+        .project-image img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .tech-tag {
-            background-color: rgba(39, 174, 96, 0.1);
+            background-color: rgba(52, 152, 219, 0.1);
             color: var(--color-accent);
             padding: 8px 15px;
             border-radius: 20px;
@@ -161,116 +175,205 @@
             font-weight: 600;
         }
 
-        .feature-list {
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 30px;
         }
 
-        .feature-item {
+        .feature-card {
             background-color: white;
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
         }
 
-        .feature-item:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
             color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
             margin-bottom: 15px;
         }
 
-        .feature-item h3 {
+        .feature-card h3 {
             color: var(--color-primary);
             margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
-        .screenshots-grid {
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .data-table th {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .cost-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cost-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .cost-details {
+            flex-grow: 1;
+        }
+
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
-        .screenshot-item {
+        .gallery-item {
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            background-color: white;
         }
 
-        .screenshot-item:hover {
+        .gallery-item:hover {
             transform: translateY(-5px);
             box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
         }
 
-        .screenshot-item img {
+        .gallery-image {
             width: 100%;
-            height: 200px;
+            height: 230px;
             object-fit: cover;
         }
 
-        .testimonial {
+        .gallery-caption {
+            padding: 15px;
+        }
+
+        .gallery-caption h3 {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .process-timeline {
+            margin-top: 40px;
+            position: relative;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-item {
+            padding: 20px 30px;
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 30px;
             box-shadow: var(--shadow);
-            margin-top: 40px;
+            margin-bottom: 30px;
             position: relative;
         }
 
-        .testimonial::before {
-            content: '"';
+        .timeline-item::before {
+            content: '';
             position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(39, 174, 96, 0.1);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-accent);
             border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
+            left: -40px;
+            top: 20px;
         }
 
-        .author-info h4 {
-            font-weight: 600;
-            margin-bottom: 5px;
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: calc(100% + 30px);
+            background-color: #ddd;
+            left: -31px;
+            top: 20px;
+            z-index: -1;
         }
 
-        .author-info p {
-            color: #777;
-            font-size: 0.9rem;
+        .timeline-item:last-child::after {
+            display: none;
         }
 
-        .cta-container {
+        .timeline-title {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--color-accent);
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
             text-align: center;
             margin-top: 60px;
         }
@@ -284,11 +387,51 @@
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
+            font-size: 1.1rem;
         }
 
         .cta-button:hover {
             background-color: var(--color-primary);
             transform: translateY(-3px);
+        }
+
+        .results-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .results-section h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background-color: rgba(52, 152, 219, 0.05);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .result-label {
+            color: var(--color-primary);
+            font-weight: 600;
         }
 
         .footer {
@@ -306,177 +449,561 @@
         }
 
         @media (max-width: 768px) {
-            .grid-layout {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
-            .header h1 {
-                font-size: 2.2rem;
+            .timeline-item::before,
+            .timeline-item::after {
+                display: none;
+            }
+
+            .timeline-item {
+                margin-left: 0;
             }
         }
     </style>
 </head>
+
 <body>
     <header class="header">
-        <div class="header-pattern"></div>
+        <div class="header-bg"></div>
         <div class="header-content">
-            <h1>Proyecto de Infraestructura</h1>
-            <p>Una plataforma integral para la gestión de proyectos, mantenimiento y monitoreo de infraestructuras críticas</p>
+            <span class="brand">Enel X</span>
+            <h1>Eficiencia Energética Piscina Municipal Cerrillos</h1>
+            <p>Proyecto de mejoramiento de espacio e implementación de soluciones energéticas sostenibles</p>
         </div>
     </header>
 
     <div class="container">
         <div class="project-nav">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+            <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
         </div>
 
         <section class="project-section">
-            <h2>Visión General</h2>
-            <div class="grid-layout">
-                <div class="content-card">
-                    <h3>Sobre el Proyecto</h3>
-                    <p>El Sistema de Gestión de Infraestructura es una plataforma completa diseñada para optimizar el ciclo de vida de activos de infraestructura crítica en diferentes sectores: energía, transporte, construcción y servicios públicos.</p>
-                    <p>La solución proporciona un conjunto de herramientas integrales para planificación, monitoreo, mantenimiento y análisis de infraestructuras, ayudando a las organizaciones a mejorar la eficiencia operativa, reducir costos y prolongar la vida útil de sus activos.</p>
+            <h2>Visión General del Proyecto</h2>
+            <div class="project-overview">
+                <div class="project-description">
+                    <p>Este proyecto consistió en el levantamiento técnico y desarrollo de un plan de eficiencia
+                        energética para la Piscina Municipal de Cerrillos, un recinto que llevaba aproximadamente 12
+                        años cerrado debido a problemas en su construcción original.</p>
+
+                    <p>La propuesta de mejoramiento incluye un amplio rediseño de instalaciones, reemplazo y
+                        modernización de equipos existentes, con un enfoque principal en el ahorro energético y la
+                        sostenibilidad. El alcance abarca múltiples aspectos, desde obras civiles hasta sistemas
+                        fotovoltaicos y climatización eficiente.</p>
+
+                    <p>Como responsable del levantamiento técnico y plan de recuperación, coordiné un análisis integral
+                        del estado actual del recinto y desarrollé una propuesta técnica y económica detallada para la
+                        rehabilitación del espacio para beneficio de la comunidad.</p>
+
                     <div class="tech-stack">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Stripe</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">IoT Integration</span>
-                        <span class="tech-tag">GIS Mapping</span>
+                        <span class="tech-tag">Eficiencia Energética</span>
+                        <span class="tech-tag">Energía Solar</span>
+                        <span class="tech-tag">Bombas de Calor</span>
+                        <span class="tech-tag">Iluminación LED</span>
+                        <span class="tech-tag">Diseño Sostenible</span>
                     </div>
                 </div>
-                <div class="image-showcase">
-                    <img src="/api/placeholder/600/400" alt="Plataforma de Gestión de Infraestructura">
+                <div class="project-image">
+                    <img src="/api/placeholder/600/400" alt="Vista aérea Piscina Municipal Cerrillos">
                 </div>
             </div>
         </section>
 
         <section class="project-section">
-            <h2>Características Principales</h2>
-            <p>La plataforma ofrece un conjunto completo de funcionalidades diseñadas para optimizar cada aspecto de la gestión de infraestructura:</p>
-            <div class="feature-list">
-                <div class="feature-item">
+            <h2>Alcance del Proyecto</h2>
+            <p>El proyecto de rehabilitación y eficiencia energética para la Piscina Municipal de Cerrillos se dividió
+                en las siguientes partidas:</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-project-diagram"></i>
+                        <i class="fas fa-hard-hat"></i>
                     </div>
-                    <h3>Gestión de Activos</h3>
-                    <p>Inventario centralizado de todos los activos de infraestructura con historial completo, documentación técnica y trazabilidad.</p>
+                    <h3>Obras Civiles</h3>
+                    <p>Reparación de infraestructura, canalizaciones para montaje de piscina, sobre losa, drenajes,
+                        reparación de camarines y cubierta, cambio de policarbonato en techumbre.</p>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-swimming-pool"></i>
                     </div>
-                    <h3>Mantenimiento Predictivo</h3>
-                    <p>Algoritmos de IA para predecir fallos y programar mantenimiento preventivo, minimizando el tiempo de inactividad.</p>
+                    <h3>Estructura y Tratamiento de Piscina</h3>
+                    <p>Implementación de piscina semiolímpica con paneles Myrtha Renovaction, sistema de filtración y
+                        desinfección moderno, canal de desborde y equipamiento de competición.</p>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt"></i>
+                        <i class="fas fa-universal-access"></i>
                     </div>
-                    <h3>Visualización GIS</h3>
-                    <p>Mapeo geoespacial de todos los activos con capas de datos personalizables para análisis territorial y logístico.</p>
+                    <h3>Elevador Portátil para Piscina</h3>
+                    <p>Instalación de elevador para personas con movilidad reducida, diseñado para soportar 204 kg, con
+                        diseño único con varios grados de libertad para mayor accesibilidad.</p>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-temperature-high"></i>
                     </div>
-                    <h3>Análisis Avanzado</h3>
-                    <p>Dashboards personalizables con KPIs, tendencias y análisis de rendimiento para toma de decisiones basada en datos.</p>
+                    <h3>Temperado de Piscina</h3>
+                    <p>Sistema de calentamiento mediante bombas de calor aerotérmicas con tecnología Inverter, compuesto
+                        por 2 unidades de 136 kW c/u para mantener agua a 28°C de forma eficiente.</p>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-wind"></i>
                     </div>
-                    <h3>Acceso Móvil</h3>
-                    <p>Aplicaciones móviles para técnicos de campo con acceso offline, escaneado de códigos QR y reporte de incidencias en tiempo real.</p>
+                    <h3>Climatización de Recinto</h3>
+                    <p>Equipo deshumidificador con capacidad de caudal de aire de 30.000 m³/hr apoyado por 2 equipos
+                        aerotérmicos de 200 kW c/u, con sistema de ductos optimizado.</p>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-file-invoice"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Gestión Documental</h3>
-                    <p>Sistema centralizado para manuales técnicos, certificaciones, permisos y documentación regulatoria con versionado.</p>
+                    <h3>Iluminación LED</h3>
+                    <p>Sustitución de luminarias antiguas por tecnología LED en interior (8x200W y 11x100W) y exterior
+                        (28x200W), reduciendo el consumo eléctrico y mejorando la calidad lumínica.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <h3>Agua Caliente Sanitaria</h3>
+                    <p>Instalación de 6 bombas de calor All in One de 300L para los camarines, proporcionando agua
+                        caliente de forma eficiente para duchas y servicios sanitarios.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Sistema Fotovoltaico</h3>
+                    <p>Generación solar con sistema de 23,1 kWp compuesto por 42 paneles de 550 Wp e inversor trifásico
+                        de 20 kW, ubicados estratégicamente en ambas aguas del edificio.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Aumento de Capacidad Eléctrica</h3>
+                    <p>Modernización del sistema eléctrico con nuevo empalme de 800A, transformador, tablero general y
+                        tramitación de proyectos correspondientes.</p>
                 </div>
             </div>
         </section>
 
         <section class="project-section">
-            <h2>Capturas de Pantalla</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="Dashboard principal">
-                </div>
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="Mapa GIS de activos">
-                </div>
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="Calendario de mantenimiento">
-                </div>
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="Ficha de activo">
-                </div>
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="Análisis de rendimiento">
-                </div>
-                <div class="screenshot-item">
-                    <img src="/api/placeholder/600/400" alt="App móvil de campo">
-                </div>
+            <h2>Detalles Técnicos</h2>
+
+            <h3 style="color: var(--color-primary); margin: 30px 0 15px;">Especificaciones de Temperado de Piscina</h3>
+            <div class="data-table">
+                <table width="100%">
+                    <tr>
+                        <th>Característica</th>
+                        <th>Detalle</th>
+                    </tr>
+                    <tr>
+                        <td>Dimensiones piscina</td>
+                        <td>25m x 16m (Semiolímpica)</td>
+                    </tr>
+                    <tr>
+                        <td>Profundidad</td>
+                        <td>1,4 metros</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatura de agua</td>
+                        <td>28°C</td>
+                    </tr>
+                    <tr>
+                        <td>Equipos propuestos</td>
+                        <td>2 bombas de calor aerotérmicas (136 kW c/u)</td>
+                    </tr>
+                    <tr>
+                        <td>Potencia total</td>
+                        <td>272 kWt</td>
+                    </tr>
+                    <tr>
+                        <td>Tecnología</td>
+                        <td>Inverter (alta eficiencia)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3 style="color: var(--color-primary); margin: 30px 0 15px;">Especificaciones Sistema Fotovoltaico</h3>
+            <div class="data-table">
+                <table width="100%">
+                    <tr>
+                        <th>Característica</th>
+                        <th>Detalle</th>
+                    </tr>
+                    <tr>
+                        <td>Potencia total</td>
+                        <td>23,1 kWp</td>
+                    </tr>
+                    <tr>
+                        <td>Composición</td>
+                        <td>2 filas de 21 paneles de 550 Wp</td>
+                    </tr>
+                    <tr>
+                        <td>Ubicación</td>
+                        <td>Aguas norte y sur del edificio</td>
+                    </tr>
+                    <tr>
+                        <td>Inversores</td>
+                        <td>Inversor trifásico de 20 kW</td>
+                    </tr>
+                    <tr>
+                        <td>Producción anual estimada</td>
+                        <td>40.309 kWh/año</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3 style="color: var(--color-primary); margin: 30px 0 15px;">Iluminación LED</h3>
+            <div class="data-table">
+                <table width="100%">
+                    <tr>
+                        <th>Ubicación</th>
+                        <th>Cantidad y Potencia</th>
+                        <th>Potencia Total</th>
+                    </tr>
+                    <tr>
+                        <td>Interior piscina</td>
+                        <td>8 proyectores de 200W y 11 de 100W</td>
+                        <td>2,7 kW</td>
+                    </tr>
+                    <tr>
+                        <td>Exterior</td>
+                        <td>28 proyectores de 200W</td>
+                        <td>5,6 kW</td>
+                    </tr>
+                </table>
             </div>
         </section>
 
         <section class="project-section">
-            <h2>Tecnología y Arquitectura</h2>
-            <div class="grid-layout">
-                <div class="content-card">
-                    <h3>Arquitectura del Sistema</h3>
-                    <p>La plataforma se basa en una arquitectura moderna de microservicios desplegada en la nube, con los siguientes componentes principales:</p>
-                    <ul style="margin-top: 15px; margin-left: 20px;">
-                        <li><strong>Frontend:</strong> Interfaz de usuario desarrollada con Vue.js para proporcionar una experiencia fluida y reactiva.</li>
-                        <li><strong>Backend:</strong> Servicios REST implementados con Node.js y Firebase Functions para procesamiento escalable.</li>
-                        <li><strong>Base de datos:</strong> Combinación de Firebase Firestore para datos en tiempo real y PostgreSQL para datos históricos y analíticos.</li>
-                        <li><strong>Servicios de integración:</strong> APIs para conexión con sistemas ERP, SCADA, IoT y plataformas de terceros.</li>
-                        <li><strong>Servicios cloud:</strong> Alojamiento en AWS con balanceo de carga, escalado automático y alta disponibilidad.</li>
-                    </ul>
+            <h2>Presupuesto y Valor del Proyecto</h2>
+
+            <div class="cost-card">
+                <div class="cost-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
                 </div>
-                <div class="content-card">
-                    <h3>Innovaciones Técnicas</h3>
-                    <p>El proyecto implementa varias innovaciones tecnológicas para ofrecer funcionalidades avanzadas:</p>
-                    <ul style="margin-top: 15px; margin-left: 20px;">
-                        <li><strong>Integración IoT:</strong> Conexión con sensores y dispositivos para monitoreo en tiempo real de parámetros críticos.</li>
-                        <li><strong>Análisis predictivo:</strong> Algoritmos de machine learning para predecir fallos y optimizar mantenimientos.</li>
-                        <li><strong>Visualización 3D:</strong> Modelos tridimensionales de activos para inspecciones virtuales detalladas.</li>
-                        <li><strong>Blockchain:</strong> Implementación para trazabilidad de certificaciones y auditorías con inmutabilidad garantizada.</li>
-                        <li><strong>Realidad aumentada:</strong> Asistencia para técnicos de campo con superposición de información técnica.</li>
-                    </ul>
+                <div class="cost-details">
+                    <div class="cost-amount">$1.132.737.760</div>
+                    <div class="cost-description">Valor total del proyecto (pesos chilenos, neto)</div>
                 </div>
             </div>
+
+            <h3 style="color: var(--color-primary); margin: 30px 0 15px;">Desglose de Costos por Partida</h3>
+            <div class="data-table">
+                <table width="100%">
+                    <tr>
+                        <th>Partida</th>
+                        <th>Valor (CLP Neto)</th>
+                    </tr>
+                    <tr>
+                        <td>Obras Civiles</td>
+                        <td>$116.052.510</td>
+                    </tr>
+                    <tr>
+                        <td>Estructura y Tratamiento de Piscina</td>
+                        <td>$553.880.298</td>
+                    </tr>
+                    <tr>
+                        <td>Elevador Portátil</td>
+                        <td>$10.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Temperado de Piscina</td>
+                        <td>$49.240.286</td>
+                    </tr>
+                    <tr>
+                        <td>Deshumidificador Piscina</td>
+                        <td>$274.579.911</td>
+                    </tr>
+                    <tr>
+                        <td>Luminarias LED Piscina</td>
+                        <td>$6.633.618</td>
+                    </tr>
+                    <tr>
+                        <td>Agua Caliente Sanitaria</td>
+                        <td>$22.354.958</td>
+                    </tr>
+                    <tr>
+                        <td>Cambio de Luminarias Exterior</td>
+                        <td>$9.655.848</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema Fotovoltaico</td>
+                        <td>$22.340.496</td>
+                    </tr>
+                    <tr>
+                        <td>Aire Acondicionado Cafetería</td>
+                        <td>$3.426.137</td>
+                    </tr>
+                    <tr>
+                        <td>Retiro de Colectores Solares</td>
+                        <td>$3.259.531</td>
+                    </tr>
+                    <tr>
+                        <td>Aumento de Capacidad</td>
+                        <td>$61.314.167</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p style="margin-top: 20px; font-style: italic; color: #666;">* Los mantenimientos anuales estimados para
+                todos los sistemas suman $5.150.000 (pesos chilenos)</p>
         </section>
 
         <section class="project-section">
-            <h2>Resultados y Testimonios</h2>
-            <p>La implementación de la plataforma ha generado resultados significativos para nuestros clientes:</p>
-            <ul style="margin: 20px 0 30px 20px;">
-                <li>Reducción del 35% en costos de mantenimiento no planificado</li>
-                <li>Aumento del 28% en la vida útil de los activos críticos</li>
-                <li>Disminución del 40% en tiempo de respuesta ante incidencias</li>
-                <li>Mejora del 45% en cumplimiento normativo y documentación</li>
-            </ul>
+            <h2>Proyección de Consumo Energético</h2>
 
-            <div class="testimonial">
-                <p class="testimonial-content">La plataforma de Infraestructura ha transformado nuestra capacidad para gestionar activos críticos. Pasamos de un enfoque reactivo a uno preventivo, lo que ha reducido significativamente nuestros costos operativos y mejorado la fiabilidad de nuestros servicios.</p>
-                <div class="testimonial-author">
-                    <img src="/api/placeholder/100/100" alt="Cliente">
-                    <div class="author-info">
-                        <h4>Carlos Mendoza</h4>
-                        <p>Director de Operaciones, Empresa Energética</p>
+            <p>El proyecto incluye un análisis exhaustivo del consumo energético proyectado, comparando el uso de
+                sistemas tradicionales (gas) versus las tecnologías eficientes propuestas (bombas de calor):</p>
+
+            <div class="results-section">
+                <h3>Resultados Comparativos Anuales</h3>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value">1.977.091</div>
+                        <div class="result-label">kWh con sistemas tradicionales</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-value">433.770</div>
+                        <div class="result-label">kWh con sistemas eficientes</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-value">78%</div>
+                        <div class="result-label">Reducción de consumo energético</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-value">40.309</div>
+                        <div class="result-label">kWh/año producción fotovoltaica</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="cta-container">
-            <a href="#" class="cta-button">Ver Demo del Proyecto</a>
+        <section class="project-section">
+            <h2>Galería del Proyecto</h2>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Vista aérea piscina Cerrillos">
+                    <div class="gallery-caption">
+                        <h3>Vista Aérea del Recinto</h3>
+                        <p>Imagen del complejo deportivo municipal de Cerrillos antes de la intervención.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Sistema de bomba de calor">
+                    <div class="gallery-caption">
+                        <h3>Bombas de Calor Aerotérmicas</h3>
+                        <p>Equipos de alta eficiencia para temperado de agua con tecnología Inverter.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Paneles Myrtha">
+                    <div class="gallery-caption">
+                        <h3>Tecnología Myrtha Renovaction</h3>
+                        <p>Sistema modular para piscinas de competición con acabados de alta calidad.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Iluminación LED">
+                    <div class="gallery-caption">
+                        <h3>Sistema de Iluminación LED</h3>
+                        <p>Proyectores de alta eficiencia para iluminación interior y exterior.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Sistema Fotovoltaico">
+                    <div class="gallery-caption">
+                        <h3>Instalación Fotovoltaica</h3>
+                        <p>Paneles solares en la cubierta para generación de energía renovable.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Deshumidificador">
+                    <div class="gallery-caption">
+                        <h3>Sistema de Climatización</h3>
+                        <p>Equipo deshumidificador de alta capacidad con ductería optimizada.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img class="gallery-image" src="/api/placeholder/600/400" alt="Elevador para piscina">
+                    <div class="gallery-caption">
+                        <h3>Elevador para Accesibilidad</h3>
+                        <p>Sistema de acceso a piscina para personas con movilidad reducida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Proceso de Implementación</h2>
+
+            <p>El proyecto fue planificado para ejecutarse en un período de aproximadamente 195 días hábiles, siguiendo
+                una secuencia lógica que permitiera la rehabilitación completa del recinto:</p>
+
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 1</div>
+                    <h3>Levantamiento y Diagnóstico</h3>
+                    <p>Análisis detallado del estado de las instalaciones existentes, identificación de problemas
+                        estructurales y funcionamiento de sistemas. Desarrollo del plan técnico para remodelación.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 2</div>
+                    <h3>Obras Civiles Preliminares</h3>
+                    <p>Reparación de estructuras existentes, preparación de canalizaciones para la piscina, sobre losa,
+                        y drenajes. Reparación de camarines, vidrios y cubierta.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 3</div>
+                    <h3>Instalación de Piscina y Sistemas Hidráulicos</h3>
+                    <p>Montaje de la piscina semiolímpica con sistema Myrtha Renovaction, instalación de sistema de
+                        filtración, tratamiento de agua y equipamiento de competición.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 4</div>
+                    <h3>Implementación de Sistemas de Eficiencia Energética</h3>
+                    <p>Instalación de bombas de calor para temperado de agua, sistema deshumidificador, agua caliente
+                        sanitaria, y paneles fotovoltaicos. Actualización del sistema eléctrico y ampliación de
+                        capacidad.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 5</div>
+                    <h3>Acabados y Sistemas Complementarios</h3>
+                    <p>Instalación de iluminación LED, elevador para accesibilidad, aire acondicionado en zonas
+                        complementarias y finalización de obras menores.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Etapa 6</div>
+                    <h3>Pruebas y Puesta en Marcha</h3>
+                    <p>Verificación del funcionamiento óptimo de todos los sistemas, calibración de equipos, pruebas de
+                        calidad de agua y entrega del recinto a la municipalidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Consideraciones y Alcances</h2>
+
+            <div class="project-description" style="margin-top: 20px;">
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                    <li style="margin-bottom: 10px;">Se consideró tramitación TE4 para el sistema fotovoltaico,
+                        entendiendo que la instalación actual cumple con normativa eléctrica.</li>
+                    <li style="margin-bottom: 10px;">Se diseñó un cierre perimetral para las bombas de calor,
+                        garantizando seguridad y protección.</li>
+                    <li style="margin-bottom: 10px;">Se incorporaron permisos para uso de baños, comedores y acopio de
+                        materiales durante la ejecución.</li>
+                    <li style="margin-bottom: 10px;">Los equipos retirados fueron entregados al cliente para su libre
+                        disposición o disposición de residuos.</li>
+                    <li style="margin-bottom: 10px;">El horario de trabajo establecido fue de 8:30 a 18:30 hrs de lunes
+                        a viernes.</li>
+                    <li style="margin-bottom: 10px;">Se aseguró la utilización de malla a tierra normalizada y
+                        existente.</li>
+                    <li style="margin-bottom: 10px;">Se validó que los filtros de piscina y piping estuvieran
+                        correctamente dimensionados.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Beneficios e Impacto</h2>
+
+            <div class="results-section">
+                <h3>Beneficios Principales</h3>
+
+                <div class="feature-grid" style="margin-top: 20px;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Eficiencia Energética</h3>
+                        <p>Reducción del 78% en consumo energético gracias a las bombas de calor, iluminación LED y
+                            sistemas optimizados.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sostenibilidad Ambiental</h3>
+                        <p>Disminución significativa de emisiones de CO2 gracias a la implementación de energías limpias
+                            y renovables.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3>Ahorro Económico</h3>
+                        <p>Reducción sustancial en costos operativos a largo plazo, especialmente en calentamiento de
+                            agua y climatización.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Impacto Social</h3>
+                        <p>Recuperación de un espacio deportivo para la comunidad, fomentando actividad física y
+                            bienestar social.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>Accesibilidad Inclusiva</h3>
+                        <p>Diseño que considera accesibilidad para personas con movilidad reducida mediante elevadores y
+                            espacios adaptados.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Estándar Competitivo</h3>
+                        <p>Piscina con características técnicas para realizar competencias deportivas a nivel local y
+                            regional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button">Ver más proyectos de infraestructura deportiva</a>
         </div>
     </div>
 
@@ -487,5 +1014,3 @@
             <a href="mailto:info@grupoatlas.cl">Contacto</a>
         </div>
     </footer>
-</body>
-</html>
