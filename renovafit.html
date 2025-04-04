@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: RenovaFit - Sistema de Gestión Médica</title>
+    
+    <!-- Google Fonts - Aptos -->
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #3498db;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-weight: 600;
+            margin: 30px 0 20px;
+            color: var(--color-primary);
+        }
+        
+        h3 {
+            font-weight: 600;
+            margin: 25px 0 15px;
+            color: var(--color-secondary);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            padding: 50px 0;
+        }
+        
+        .project-features {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+        
+        .project-tech {
+            padding: 50px 0;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-screenshots {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .screenshot-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .screenshot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+        
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            padding: 15px;
+            background-color: #fff;
+        }
+        
+        .project-process {
+            padding: 50px 0;
+        }
+        
+        .process-timeline {
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--color-accent);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .project-challenges {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+        
+        .project-conclusion {
+            padding: 50px 0;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--color-accent);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid,
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin-left: 40px;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>RenovaFit - Sistema de Gestión Médica</h1>
+            <p>Una solución integral para el seguimiento de pacientes con cirugías bariátricas</p>
+        </div>
+    </header>
+    
+    <section class="project-description">
+        <div class="container">
+            <h2>Descripción del Proyecto</h2>
+            <p>RenovaFit es un sistema de gestión médica diseñado específicamente para centros de salud y rehabilitación que trabajan con pacientes que han pasado por cirugías bariátricas, bypass gástrico o balón gástrico. El sistema permite un seguimiento integral de los pacientes, incluyendo fichas médicas, evaluaciones de diferentes especialistas, notas de evolución y más.</p>
+            
+            <p>El proyecto incluye tanto un sitio web público para los pacientes como un sistema de gestión interna para los profesionales de la salud, permitiendo una gestión eficiente y personalizada de cada caso.</p>
+            
+            <a href="#" class="btn">Ver Demo</a>
+        </div>
+    </section>
+    
+    <section class="project-features">
+        <div class="container">
+            <h2>Características Principales</h2>
+            <p>El sistema RenovaFit fue desarrollado para cubrir todas las necesidades de un centro médico especializado en pacientes bariátricos, con funcionalidades que facilitan el trabajo diario de los profesionales y mejoran la experiencia del paciente.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3>Gestión de Fichas Médicas</h3>
+                    <p>Sistema completo para crear, editar y consultar fichas médicas con información detallada de cada paciente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Multiusuario por Especialidad</h3>
+                    <p>Diferentes tipos de profesionales (médicos, kinesiólogos, nutricionistas) pueden acceder al sistema con permisos específicos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Evaluaciones Especializadas</h3>
+                    <p>Registro de evaluaciones médicas, kinésicas y de enfermería con formatos adaptados a cada especialidad.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Sistema de Agendamiento</h3>
+                    <p>Los pacientes pueden agendar citas directamente desde el sitio web, eligiendo profesional, servicio y horario.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Estadísticas y Reportes</h3>
+                    <p>Generación de estadísticas detalladas sobre pacientes, tipos de cirugías, evaluaciones y más.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Seguridad y Privacidad</h3>
+                    <p>Sistema seguro con autenticación JWT, encriptación de contraseñas y control de acceso basado en roles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project-tech">
+        <div class="container">
+            <h2>Tecnologías Utilizadas</h2>
+            <p>Para el desarrollo de este proyecto se implementaron diversas tecnologías modernas que garantizan un sistema robusto, seguro y con excelente experiencia de usuario:</p>
+            
+            <h3>Frontend</h3>
+            <div class="tech-list">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Font Awesome</span>
+                <span class="tech-tag">DataTables</span>
+                <span class="tech-tag">SweetAlert2</span>
+                <span class="tech-tag">Flatpickr</span>
+            </div>
+            
+            <h3>Backend</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JWT</span>
+                <span class="tech-tag">RESTful API</span>
+                <span class="tech-tag">PyMySQL</span>
+                <span class="tech-tag">Werkzeug</span>
+                <span class="tech-tag">dotenv</span>
+            </div>
+            
+            <h3>DevOps</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">Apache/Nginx</span>
+                <span class="tech-tag">Gunicorn</span>
+                <span class="tech-tag">HTTPS/SSL</span>
+                <span class="tech-tag">Systemd</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project-screenshots">
+        <div class="container">
+            <h2>Capturas de Pantalla</h2>
+            <p>Estas capturas muestran algunas de las interfaces principales del sistema:</p>
+            
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <img src="/api/placeholder/600/350" alt="Página de inicio de RenovaFit">
+                    <div class="screenshot-caption">
+                        <h3>Página de Inicio</h3>
+                        <p>Sitio web público con información sobre los servicios ofrecidos para pacientes bariátricos.</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="/api/placeholder/600/350" alt="Panel de Fichas Médicas">
+                    <div class="screenshot-caption">
+                        <h3>Panel de Fichas Médicas</h3>
+                        <p>Vista de gestión de fichas médicas con filtros y estadísticas.</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="/api/placeholder/600/350" alt="Detalle de Ficha Médica">
+                    <div class="screenshot-caption">
+                        <h3>Detalle de Ficha Médica</h3>
+                        <p>Vista detallada con pestañas para antecedentes, evaluaciones y notas de evolución.</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="/api/placeholder/600/350" alt="Sistema de Agendamiento">
+                    <div class="screenshot-caption">
+                        <h3>Sistema de Agendamiento</h3>
+                        <p>Interfaz para que los pacientes reserven sus citas con diferentes profesionales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project-process">
+        <div class="container">
+            <h2>Proceso de Desarrollo</h2>
+            <p>El desarrollo de RenovaFit se llevó a cabo siguiendo una metodología ágil, con iteraciones frecuentes y validaciones con el cliente:</p>
+            
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 1: Análisis y Planificación</h3>
+                        <p>Entrevistas con profesionales del centro para entender sus necesidades, definición de requerimientos, diseño de la arquitectura del sistema y planificación de sprints.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 2: Diseño de Base de Datos</h3>
+                        <p>Desarrollo del modelo de datos relacional, optimizado para el manejo de fichas médicas, evaluaciones y seguimiento de pacientes bariátricos.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 3: Desarrollo Backend</h3>
+                        <p>Implementación de la API RESTful con Flask, sistemas de autenticación, manejo de usuarios y endpoints para todas las funcionalidades requeridas.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 4: Desarrollo Frontend</h3>
+                        <p>Creación del sitio web público y el sistema interno con interfaces responsivas e intuitivas para diferentes tipos de usuarios.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 5: Testing y Optimización</h3>
+                        <p>Pruebas exhaustivas de funcionalidades, seguridad, rendimiento y optimización para diferentes dispositivos.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 6: Implementación y Capacitación</h3>
+                        <p>Despliegue en servidor de producción, migración de datos, capacitación al personal y soporte técnico inicial.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project-challenges">
+        <div class="container">
+            <h2>Desafíos y Soluciones</h2>
+            
+            <h3>Desafío 1: Seguridad de Datos Médicos</h3>
+            <p>Los datos médicos son extremadamente sensibles y requieren un alto nivel de protección. Implementamos encriptación de datos sensibles, autenticación robusta con JWT, HTTPS y políticas estrictas de acceso basadas en roles para garantizar la confidencialidad.</p>
+            
+            <h3>Desafío 2: Experiencia de Usuario para Diferentes Profesionales</h3>
+            <p>Cada tipo de profesional (médicos, enfermeros, kinesiólogos) tiene diferentes necesidades de interfaz. Desarrollamos interfaces adaptativas que presentan las herramientas y datos relevantes según el rol del usuario conectado.</p>
+            
+            <h3>Desafío 3: Sistema de Agendamiento Optimizado</h3>
+            <p>El sistema debía evitar conflictos de horarios y facilitar la asignación eficiente de recursos. Creamos un algoritmo de verificación que valida disponibilidad en tiempo real y un sistema de notificaciones para mantener informados a pacientes y profesionales.</p>
+        </div>
+    </section>
+    
+    <section class="project-conclusion">
+        <div class="container">
+            <h2>Resultados y Conclusiones</h2>
+            <p>El sistema RenovaFit ha permitido al centro médico:</p>
+            <ul style="margin-left: 25px; margin-bottom: 20px;">
+                <li>Reducir en un 45% el tiempo dedicado a tareas administrativas</li>
+                <li>Mejorar la calidad de atención al paciente con un seguimiento más personalizado</li>
+                <li>Centralizar toda la información médica en un solo sistema, facilitando el trabajo interdisciplinario</li>
+                <li>Implementar un sistema de agendamiento que ha reducido en un 30% las citas perdidas</li>
+                <li>Generar análisis estadísticos que permiten tomar mejores decisiones estratégicas</li>
+            </ul>
+            
+            <p>Este proyecto demuestra la capacidad para desarrollar soluciones a medida para problemas complejos en el sector salud, combinando conocimientos técnicos con un entendimiento profundo de las necesidades del cliente.</p>
+            
+            <a href="index.html" class="btn">Volver al Portafolio</a>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Andres Psijas - Desarrollador Web & UX/UI</p>
+        </div>
+    </footer>
+    
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Mostrar/ocultar botón de volver arriba
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Scroll suave al hacer clic en el botón
+        document.getElementById('back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

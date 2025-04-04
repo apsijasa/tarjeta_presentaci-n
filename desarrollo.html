@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Desarrollo Web - Andrés Psijas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #f72585;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--color-primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .detail-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .detail-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .detail-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+
+            .project-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Desarrollo Web Portfolio</h1>
+        <p>Un sitio web con diseño minimalista y animaciones suaves</p>
+    </header>
+
+    <div class="container">
+        <div class="project-nav">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+        </div>
+
+        <section class="project-section">
+            <h2>Descripción del Proyecto</h2>
+            <p>Este proyecto consistió en el desarrollo de un sitio web portfolio personal con un enfoque en la experiencia de usuario, implementando un diseño minimalista y animaciones suaves para mejorar la navegación y presentación de proyectos.</p>
+            
+            <p>El objetivo principal fue crear una plataforma profesional que mostrara mis habilidades como desarrollador web y diseñador UX/UI, permitiendo a los visitantes explorar mi trabajo de manera intuitiva y atractiva.</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Responsive Design</span>
+                <span class="tech-tag">Animaciones CSS</span>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Galería del Proyecto</h2>
+            <div class="project-gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Vista de la página de inicio">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Sección de proyectos">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Detalle de proyecto">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Página de contacto">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Características y Funcionalidades</h2>
+            <div class="project-details">
+                <div class="detail-card">
+                    <h3>Características Principales</h3>
+                    <ul class="detail-list">
+                        <li>Diseño minimalista enfocado en la experiencia de usuario</li>
+                        <li>Interfaz totalmente responsive para dispositivos móviles y de escritorio</li>
+                        <li>Animaciones suaves que mejoran la experiencia de navegación</li>
+                        <li>Galería de proyectos con filtros por categoría</li>
+                        <li>Modo oscuro/claro para mejorar la accesibilidad</li>
+                        <li>Tiempos de carga optimizados y rendimiento mejorado</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>Desafíos y Soluciones</h3>
+                    <ul class="detail-list">
+                        <li>Implementación de animaciones fluidas sin afectar el rendimiento</li>
+                        <li>Crear una experiencia de usuario uniforme en múltiples dispositivos</li>
+                        <li>Desarrollar un diseño visualmente atractivo que no sacrifique usabilidad</li>
+                        <li>Optimización de imágenes y recursos para tiempos de carga rápidos</li>
+                        <li>Implementación de transiciones suaves entre secciones</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Proceso de Desarrollo</h2>
+            <p>El desarrollo de este proyecto siguió una metodología centrada en el usuario, comenzando con la investigación y análisis de portafolios efectivos en la industria. Esto me permitió identificar las mejores prácticas y elementos clave para crear una experiencia memorable.</p>
+            
+            <p>El proceso incluyó las siguientes etapas:</p>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Investigación de usuario y benchmarking</li>
+                <li>Wireframing y diseño de la arquitectura de información</li>
+                <li>Creación de prototipos de alta fidelidad</li>
+                <li>Desarrollo front-end con HTML5, CSS3 y JavaScript</li>
+                <li>Implementación de animaciones y transiciones suaves</li>
+                <li>Pruebas de usabilidad y optimización de la experiencia</li>
+                <li>Despliegue y monitoreo de rendimiento</li>
+            </ol>
+            
+            <p style="margin-top: 20px;">El resultado final es un sitio web portfolio que no solo muestra mis proyectos de manera efectiva, sino que también demuestra mis habilidades en desarrollo web y diseño UX/UI a través de la propia experiencia del sitio.</p>
+            
+            <a href="#" class="cta-button">Ver Demo del Proyecto</a>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Andrés Psijas - Todos los derechos reservados</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@grupoatlas.cl">Contacto</a>
+        </div>
+    </footer>
+</body>
+</html>

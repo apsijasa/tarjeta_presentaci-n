@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Infraestructura - Andrés Psijas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #27ae60;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .image-showcase {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tech-tag {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--color-accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .screenshot-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .testimonial {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(39, 174, 96, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-pattern"></div>
+        <div class="header-content">
+            <h1>Proyecto de Infraestructura</h1>
+            <p>Una plataforma integral para la gestión de proyectos, mantenimiento y monitoreo de infraestructuras críticas</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="project-nav">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+        </div>
+
+        <section class="project-section">
+            <h2>Visión General</h2>
+            <div class="grid-layout">
+                <div class="content-card">
+                    <h3>Sobre el Proyecto</h3>
+                    <p>El Sistema de Gestión de Infraestructura es una plataforma completa diseñada para optimizar el ciclo de vida de activos de infraestructura crítica en diferentes sectores: energía, transporte, construcción y servicios públicos.</p>
+                    <p>La solución proporciona un conjunto de herramientas integrales para planificación, monitoreo, mantenimiento y análisis de infraestructuras, ayudando a las organizaciones a mejorar la eficiencia operativa, reducir costos y prolongar la vida útil de sus activos.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">IoT Integration</span>
+                        <span class="tech-tag">GIS Mapping</span>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="/api/placeholder/600/400" alt="Plataforma de Gestión de Infraestructura">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Características Principales</h2>
+            <p>La plataforma ofrece un conjunto completo de funcionalidades diseñadas para optimizar cada aspecto de la gestión de infraestructura:</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Gestión de Activos</h3>
+                    <p>Inventario centralizado de todos los activos de infraestructura con historial completo, documentación técnica y trazabilidad.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Mantenimiento Predictivo</h3>
+                    <p>Algoritmos de IA para predecir fallos y programar mantenimiento preventivo, minimizando el tiempo de inactividad.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Visualización GIS</h3>
+                    <p>Mapeo geoespacial de todos los activos con capas de datos personalizables para análisis territorial y logístico.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis Avanzado</h3>
+                    <p>Dashboards personalizables con KPIs, tendencias y análisis de rendimiento para toma de decisiones basada en datos.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Acceso Móvil</h3>
+                    <p>Aplicaciones móviles para técnicos de campo con acceso offline, escaneado de códigos QR y reporte de incidencias en tiempo real.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Gestión Documental</h3>
+                    <p>Sistema centralizado para manuales técnicos, certificaciones, permisos y documentación regulatoria con versionado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Capturas de Pantalla</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Dashboard principal">
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Mapa GIS de activos">
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Calendario de mantenimiento">
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Ficha de activo">
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Análisis de rendimiento">
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="App móvil de campo">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Tecnología y Arquitectura</h2>
+            <div class="grid-layout">
+                <div class="content-card">
+                    <h3>Arquitectura del Sistema</h3>
+                    <p>La plataforma se basa en una arquitectura moderna de microservicios desplegada en la nube, con los siguientes componentes principales:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li><strong>Frontend:</strong> Interfaz de usuario desarrollada con Vue.js para proporcionar una experiencia fluida y reactiva.</li>
+                        <li><strong>Backend:</strong> Servicios REST implementados con Node.js y Firebase Functions para procesamiento escalable.</li>
+                        <li><strong>Base de datos:</strong> Combinación de Firebase Firestore para datos en tiempo real y PostgreSQL para datos históricos y analíticos.</li>
+                        <li><strong>Servicios de integración:</strong> APIs para conexión con sistemas ERP, SCADA, IoT y plataformas de terceros.</li>
+                        <li><strong>Servicios cloud:</strong> Alojamiento en AWS con balanceo de carga, escalado automático y alta disponibilidad.</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Innovaciones Técnicas</h3>
+                    <p>El proyecto implementa varias innovaciones tecnológicas para ofrecer funcionalidades avanzadas:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li><strong>Integración IoT:</strong> Conexión con sensores y dispositivos para monitoreo en tiempo real de parámetros críticos.</li>
+                        <li><strong>Análisis predictivo:</strong> Algoritmos de machine learning para predecir fallos y optimizar mantenimientos.</li>
+                        <li><strong>Visualización 3D:</strong> Modelos tridimensionales de activos para inspecciones virtuales detalladas.</li>
+                        <li><strong>Blockchain:</strong> Implementación para trazabilidad de certificaciones y auditorías con inmutabilidad garantizada.</li>
+                        <li><strong>Realidad aumentada:</strong> Asistencia para técnicos de campo con superposición de información técnica.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Resultados y Testimonios</h2>
+            <p>La implementación de la plataforma ha generado resultados significativos para nuestros clientes:</p>
+            <ul style="margin: 20px 0 30px 20px;">
+                <li>Reducción del 35% en costos de mantenimiento no planificado</li>
+                <li>Aumento del 28% en la vida útil de los activos críticos</li>
+                <li>Disminución del 40% en tiempo de respuesta ante incidencias</li>
+                <li>Mejora del 45% en cumplimiento normativo y documentación</li>
+            </ul>
+
+            <div class="testimonial">
+                <p class="testimonial-content">La plataforma de Infraestructura ha transformado nuestra capacidad para gestionar activos críticos. Pasamos de un enfoque reactivo a uno preventivo, lo que ha reducido significativamente nuestros costos operativos y mejorado la fiabilidad de nuestros servicios.</p>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/100/100" alt="Cliente">
+                    <div class="author-info">
+                        <h4>Carlos Mendoza</h4>
+                        <p>Director de Operaciones, Empresa Energética</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-container">
+            <a href="#" class="cta-button">Ver Demo del Proyecto</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Andrés Psijas - Todos los derechos reservados</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@grupoatlas.cl">Contacto</a>
+        </div>
+    </footer>
+</body>
+</html>

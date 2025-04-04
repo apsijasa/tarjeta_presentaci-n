@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Impulso Verde - Andrés Psijas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #2ecc71;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="%232ecc71" fill-opacity="0.1" d="M0,0 L20,0 L20,20 L0,20 L0,0 Z M2,2 L2,18 L18,18 L18,2 L2,2 Z"/></svg>');
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header .header-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header .header-logo i {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-right: 10px;
+        }
+
+        .header .header-logo span {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header .header-logo span.accent {
+            color: var(--color-accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .image-showcase {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tech-tag {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: var(--color-accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(46, 204, 113, 0.1);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .screenshot-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .screenshot-details {
+            padding: 20px;
+        }
+
+        .screenshot-details h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .screenshot-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .results-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .result-label {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .tool-showcase {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+        
+        .tool-showcase h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        
+        .tool-showcase .calculator-preview {
+            background-color: rgba(46, 204, 113, 0.05);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator-preview form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .calculator-field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .calculator-field label {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .calculator-field select,
+        .calculator-field input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .calculator-button {
+            background-color: var(--color-accent);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .calculator-result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .calculator-result .result-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .calculator-result .result-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .project-testimonial {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .project-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(46, 204, 113, 0.1);
+            font-family: serif;
+        }
+
+        .testimonial-content {
+            padding-left: 40px;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .results-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <div class="header-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Impulso<span class="accent">Verde</span></span>
+            </div>
+            <h1>Sitio Web para Empresa de Eficiencia Energética</h1>
+            <p>Plataforma digital con calculadora de ahorro energético y presentación de servicios para una empresa líder en soluciones sustentables</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="project-nav">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+        </div>
+
+        <section class="project-section">
+            <h2>Descripción del Proyecto</h2>
+            <div class="two-columns">
+                <div class="content-card">
+                    <h3>Acerca del Proyecto</h3>
+                    <p>Impulso Verde es una empresa especializada en soluciones de eficiencia energética para hogares y empresas. Necesitaban una presencia web profesional que comunicara efectivamente sus servicios y captara leads de clientes potenciales.</p>
+                    
+                    <p>Desarrollé un sitio web completo que no solo presenta su portafolio de servicios, sino que también incluye herramientas interactivas como una calculadora de ahorro energético que permite a los visitantes estimar el retorno de inversión de implementar soluciones sostenibles.</p>
+                    
+                    <p>El diseño se centró en transmitir los valores de sostenibilidad y profesionalismo de la empresa, utilizando una paleta de colores verdes y azules que refuerzan su identidad como promotores de energías limpias.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">Font Awesome</span>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="/api/placeholder/600/400" alt="Vista principal de Impulso Verde">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Características Clave</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calculadora de Ahorro</h3>
+                    <p>Herramienta interactiva que permite a los usuarios estimar el ahorro potencial y retorno de inversión basado en su tipo de edificación y consumo actual.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Diseño Responsive</h3>
+                    <p>El sitio se adapta perfectamente a todos los dispositivos, desde móviles hasta pantallas de escritorio, garantizando una experiencia óptima para todos los usuarios.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Casos de Éxito</h3>
+                    <p>Exhibición de proyectos realizados con métricas concretas de ahorro, reducción de emisiones y retorno de inversión para generar confianza en potenciales clientes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Formularios Optimizados</h3>
+                    <p>Sistema de contacto y suscripción diseñados para maximizar la tasa de conversión con campos relevantes y validación en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimizado</h3>
+                    <p>Estructura y contenido optimizados para motores de búsqueda, enfocados en palabras clave relacionadas con eficiencia energética y ahorro.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Rendimiento Optimizado</h3>
+                    <p>Código limpio y optimizado para garantizar tiempos de carga rápidos y una experiencia fluida, mejorando tanto la experiencia de usuario como el posicionamiento.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Secciones Destacadas</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Hero section">
+                    <div class="screenshot-details">
+                        <h3>Página de Inicio</h3>
+                        <p>Sección principal con mensaje claro y conciso sobre la propuesta de valor, acompañado de llamados a la acción estratégicos para guiar al usuario.</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Servicios">
+                    <div class="screenshot-details">
+                        <h3>Servicios Ofrecidos</h3>
+                        <p>Presentación visual de los servicios de auditoría energética, instalación solar y sistemas de iluminación eficiente con descripciones claras.</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Calculadora">
+                    <div class="screenshot-details">
+                        <h3>Calculadora Interactiva</h3>
+                        <p>Herramienta que permite a los usuarios estimar el ahorro potencial y retorno de inversión según parámetros específicos de su situación.</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="/api/placeholder/600/400" alt="Casos de éxito">
+                    <div class="screenshot-details">
+                        <h3>Casos de Éxito</h3>
+                        <p>Muestra de proyectos realizados con métricas de impacto que demuestran los resultados positivos obtenidos para clientes anteriores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Calculadora de Ahorro Energético</h2>
+            <p>Una de las características más destacadas del sitio es la calculadora interactiva, que permite a los usuarios estimar el ahorro potencial y el tiempo de retorno de inversión basado en su tipo de edificación, superficie y consumo actual.</p>
+            
+            <div class="tool-showcase">
+                <h3>Vista Previa de la Calculadora</h3>
+                <div class="calculator-preview">
+                    <form>
+                        <div class="calculator-field">
+                            <label for="building-type">Tipo de edificación</label>
+                            <select id="building-type">
+                                <option value="">Selecciona una opción</option>
+                                <option value="home">Residencial</option>
+                                <option value="office">Oficina</option>
+                                <option value="retail">Comercio</option>
+                                <option value="industrial">Industrial</option>
+                            </select>
+                        </div>
+                        <div class="calculator-field">
+                            <label for="area">Superficie (m²)</label>
+                            <input type="number" id="area" placeholder="Ej: 150">
+                        </div>
+                        <div class="calculator-field">
+                            <label for="current-bill">Factura mensual actual (CLP)</label>
+                            <input type="number" id="current-bill" placeholder="Ej: 120000">
+                        </div>
+                        <div class="calculator-field">
+                            <label for="solution">Solución de interés</label>
+                            <select id="solution">
+                                <option value="">Selecciona una opción</option>
+                                <option value="solar">Energía Solar</option>
+                                <option value="lighting">Iluminación LED</option>
+                                <option value="hvac">Climatización Eficiente</option>
+                                <option value="complete">Solución Integral</option>
+                            </select>
+                        </div>
+                        <button type="button" class="calculator-button">Calcular Ahorro</button>
+                    </form>
+                    <div class="calculator-result">
+                        <div class="result-amount">$340.000</div>
+                        <div class="result-text">Ahorro anual estimado<br>Recuperación en aproximadamente 18 meses</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px;">La calculadora utiliza algoritmos personalizados basados en datos reales de la industria para proporcionar estimaciones precisas. Incluye factores como el tipo de edificación, superficie, consumo actual y la solución elegida para calcular tanto el ahorro anual como el período de recuperación de la inversión.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Resultados del Proyecto</h2>
+            <p>El nuevo sitio web de Impulso Verde ha tenido un impacto significativo en los objetivos comerciales del cliente:</p>
+            
+            <div class="results-list">
+                <div class="result-item">
+                    <div class="result-value">45%</div>
+                    <div class="result-label">Aumento en leads generados</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value">3.5x</div>
+                    <div class="result-label">Más tiempo de permanencia</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value">68%</div>
+                    <div class="result-label">Reducción en tasa de rebote</div>
+                </div>
+            </div>
+            
+            <div class="project-testimonial">
+                <div class="testimonial-content">
+                    El sitio web desarrollado por Andrés ha transformado nuestra presencia digital. La calculadora de ahorro ha sido una herramienta clave para convertir visitantes en clientes, ya que les muestra de manera tangible los beneficios de nuestros servicios. Además, el diseño profesional y la estructura clara del sitio han mejorado significativamente nuestra imagen corporativa.
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/100/100" alt="Cliente">
+                    <div class="author-info">
+                        <h4>María González</h4>
+                        <p>Gerente de Marketing, Impulso Verde</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Proceso de Desarrollo</h2>
+            <ol style="margin-left: 20px; margin-bottom: 30px;">
+                <li style="margin-bottom: 15px;"><strong>Investigación y Planificación:</strong> Análisis del mercado de eficiencia energética en Chile y estudio de la competencia para identificar oportunidades de diferenciación.</li>
+                <li style="margin-bottom: 15px;"><strong>Diseño de Wireframes:</strong> Creación de prototipos de baja fidelidad para definir la estructura y flujo del sitio, con un enfoque en la conversión de visitantes.</li>
+                <li style="margin-bottom: 15px;"><strong>Diseño Visual:</strong> Desarrollo de una identidad visual que transmite confianza y sostenibilidad, utilizando una paleta de colores verdes y azules.</li>
+                <li style="margin-bottom: 15px;"><strong>Desarrollo Frontend:</strong> Codificación HTML, CSS y JavaScript con énfasis en rendimiento y experiencia de usuario fluida en todos los dispositivos.</li>
+                <li style="margin-bottom: 15px;"><strong>Implementación de la Calculadora:</strong> Programación de la herramienta interactiva con JavaScript para proporcionar estimaciones precisas basadas en datos reales.</li>
+                <li style="margin-bottom: 15px;"><strong>Pruebas y Optimización:</strong> Evaluación exhaustiva del funcionamiento en diferentes dispositivos y navegadores, optimización de velocidad y ajustes finales.</li>
+                <li style="margin-bottom: 15px;"><strong>Lanzamiento y Seguimiento:</strong> Despliegue del sitio y monitoreo de métricas clave para realizar ajustes según el comportamiento de los usuarios.</li>
+            </ol>
+            
+            <p>El sitio se desarrolló utilizando tecnologías web estándar (HTML, CSS y JavaScript) para garantizar máxima compatibilidad y rendimiento. Se implementaron prácticas modernas de desarrollo como CSS Grid para layouts complejos y JavaScript modular para la funcionalidad interactiva.</p>
+        </section>
+
+        <div class="cta-container">
+            <a href="#" class="cta-button">Ver Sitio en Vivo</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Andrés Psijas - Todos los derechos reservados</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@grupoatlas.cl">Contacto</a>
+        </div>
+    </footer>
+</body>
+</html>
