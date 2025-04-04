@@ -305,9 +305,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Función para convertir texto plano de URL a enlace clickeable
+function makeWebsiteClickable(element) {
+    // Verificar si el elemento contiene un ícono de globo (fa-globe)
+    const icon = element.querySelector('i');
+    if (icon && icon.classList.contains('fa-globe')) {
+        // Obtener el texto actual (la URL)
+        const urlText = element.textContent.trim();
+        
+        // Crear nuevo contenido con enlace
+        element.innerHTML = '';
+        element.appendChild(icon.cloneNode(true));
+        
+        // Crear enlace
+        const link = document.createElement('a');
+        // Asegurarse de que la URL tenga http:// o https://
+        let href = urlText;
+        if (!href.startsWith('http://') && !href.startsWith('https://')) {
+            href = 'http://' + href;
+        }
+        link.href = href;
+        link.target = '_blank'; // Abrir en nueva pestaña
+        link.className = 'website-link';
+        link.textContent = urlText; // Sin espacio adicional
+        
+        element.appendChild(link);
+    }
+}
+
 // Hacer que la información del perfil sea editable
 document.addEventListener('DOMContentLoaded', () => {
     const editableElements = document.querySelectorAll('.name, .title, .contact-info li');
+    
+    // Hacer que el sitio web sea clickeable al inicio
+    const websiteElement = document.querySelector('.contact-info li:last-child');
+    if (websiteElement) {
+        makeWebsiteClickable(websiteElement);
+    }
     
     editableElements.forEach(element => {
         // No hacemos editable el ícono
@@ -414,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             
                             const span = document.createElement('span');
                             span.id = 'phoneNumber';
-                            span.textContent = ' ' + this.value;
+                            span.textContent = this.value; // Sin espacio adicional
                             element.appendChild(span);
                             
                             if (actionsDiv) {
@@ -433,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             
                             const span = document.createElement('span');
                             span.id = 'phoneNumber';
-                            span.textContent = ' ' + text;
+                            span.textContent = text; // Sin espacio adicional
                             element.appendChild(span);
                             
                             if (actionsDiv) {
@@ -451,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             
                             const span = document.createElement('span');
                             span.id = 'phoneNumber';
-                            span.textContent = ' ' + text;
+                            span.textContent = text; // Sin espacio adicional
                             element.appendChild(span);
                             
                             if (actionsDiv) {
@@ -463,11 +497,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            const icon = this.querySelector('i').cloneNode(true);
-            const text = this.childNodes[1].nodeValue.trim();
+            // Guardar el estado actual antes de editar
+            let isWebsiteLink = false;
+            let websiteUrl = '';
+            
+            // Verificar si es el elemento del sitio web
+            const icon = element.querySelector('i');
+            if (icon && icon.classList.contains('fa-globe')) {
+                isWebsiteLink = true;
+                const link = element.querySelector('a');
+                if (link) {
+                    websiteUrl = link.textContent.trim();
+                } else {
+                    websiteUrl = element.textContent.trim();
+                }
+            } else {
+                // Para otros elementos, obtener el texto normal
+                websiteUrl = element.childNodes[1] ? element.childNodes[1].nodeValue.trim() : '';
+            }
+            
+            // Crear input para edición
+            const inputValue = isWebsiteLink ? websiteUrl : (element.childNodes[1] ? element.childNodes[1].nodeValue.trim() : '');
+            const iconClone = icon ? icon.cloneNode(true) : null;
             
             const input = document.createElement('input');
-            input.value = text;
+            input.value = inputValue;
             input.style.width = 'calc(100% - 30px)';
             input.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
             input.style.border = 'none';
@@ -476,16 +530,36 @@ document.addEventListener('DOMContentLoaded', () => {
             input.style.color = 'white';
             input.style.marginLeft = '10px';
             
-            this.innerHTML = '';
-            this.appendChild(icon);
-            this.appendChild(input);
+            // Limpiar y agregar el input
+            element.innerHTML = '';
+            if (iconClone) element.appendChild(iconClone);
+            element.appendChild(input);
             input.focus();
             
             input.addEventListener('blur', function() {
                 if (this.value.trim() !== '') {
                     element.innerHTML = '';
-                    element.appendChild(icon);
-                    element.appendChild(document.createTextNode(' ' + this.value));
+                    if (iconClone) element.appendChild(iconClone);
+                    
+                    // Si es el elemento del sitio web
+                    if (isWebsiteLink) {
+                        // Crear enlace clickeable
+                        const link = document.createElement('a');
+                        // Asegurarse de que la URL tenga http:// o https://
+                        let href = this.value.trim();
+                        if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                            href = 'http://' + href;
+                        }
+                        link.href = href;
+                        link.target = '_blank'; // Abrir en nueva pestaña
+                        link.className = 'website-link';
+                        link.textContent = this.value.trim(); // Sin espacio adicional
+                        element.appendChild(link);
+                    } else {
+                        // Para otros elementos, agregar texto normal
+                        const textNode = document.createTextNode(this.value);
+                        element.appendChild(textNode);
+                    }
                     
                     // Guardar en localStorage con un identificador único para cada elemento
                     const identifier = 'contact-' + Array.from(element.parentNode.children).indexOf(element);
@@ -494,9 +568,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Actualizar el QR con la nueva información
                     updateQRCode();
                 } else {
+                    // Restaurar el contenido original si está vacío
                     element.innerHTML = '';
-                    element.appendChild(icon);
-                    element.appendChild(document.createTextNode(' ' + text));
+                    if (iconClone) element.appendChild(iconClone);
+                    
+                    if (isWebsiteLink) {
+                        // Restaurar el enlace
+                        const link = document.createElement('a');
+                        let href = websiteUrl;
+                        if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                            href = 'http://' + href;
+                        }
+                        link.href = href;
+                        link.target = '_blank';
+                        link.className = 'website-link';
+                        link.textContent = websiteUrl; // Sin espacio adicional
+                        element.appendChild(link);
+                    } else {
+                        // Restaurar el texto normal
+                        const textNode = document.createTextNode(websiteUrl);
+                        element.appendChild(textNode);
+                    }
                 }
             });
             
@@ -504,9 +596,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (e.key === 'Enter') {
                     this.blur();
                 } else if (e.key === 'Escape') {
+                    // Restaurar el contenido original
                     element.innerHTML = '';
-                    element.appendChild(icon);
-                    element.appendChild(document.createTextNode(' ' + text));
+                    if (iconClone) element.appendChild(iconClone);
+                    
+                    if (isWebsiteLink) {
+                        // Restaurar el enlace
+                        const link = document.createElement('a');
+                        let href = websiteUrl;
+                        if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                            href = 'http://' + href;
+                        }
+                        link.href = href;
+                        link.target = '_blank';
+                        link.className = 'website-link';
+                        link.textContent = websiteUrl; // Sin espacio adicional
+                        element.appendChild(link);
+                    } else {
+                        // Restaurar el texto normal
+                        const textNode = document.createTextNode(websiteUrl);
+                        element.appendChild(textNode);
+                    }
                 }
             });
         });
@@ -575,14 +685,36 @@ window.addEventListener('load', () => {
             if (index === 1 && item.classList.contains('phone-item')) {
                 const phoneElement = item.querySelector('#phoneNumber');
                 if (phoneElement) {
-                    phoneElement.textContent = ' ' + savedValue;
+                    phoneElement.textContent = savedValue; // Sin espacio adicional
                 }
             } else {
                 const icon = item.querySelector('i').cloneNode(true);
                 item.innerHTML = '';
                 item.appendChild(icon);
-                item.appendChild(document.createTextNode(' ' + savedValue));
+                
+                // Si es el último elemento (sitio web)
+                if (index === contactItems.length - 1) {
+                    // Crear enlace clickeable
+                    const link = document.createElement('a');
+                    // Asegurarse de que la URL tenga http:// o https://
+                    let href = savedValue.trim();
+                    if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                        href = 'http://' + href;
+                    }
+                    link.href = href;
+                    link.target = '_blank'; // Abrir en nueva pestaña
+                    link.className = 'website-link';
+                    link.textContent = savedValue; // Sin espacio adicional
+                    item.appendChild(link);
+                } else {
+                    // Para otros elementos, agregar texto normal
+                    const textNode = document.createTextNode(savedValue);
+                    item.appendChild(textNode);
+                }
             }
+        } else if (index === contactItems.length - 1) {
+            // Si es el último elemento (sitio web) y no hay datos guardados
+            makeWebsiteClickable(item);
         }
     });
     
