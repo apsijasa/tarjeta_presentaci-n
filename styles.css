@@ -19,7 +19,7 @@
 
 /* Base */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Aptos', 'Open Sans', sans-serif;
     background-color: #f5f7fb;
     color: var(--color-dark);
     line-height: 1.6;
@@ -48,7 +48,6 @@ body {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     color: white;
     padding: 40px;
-    text-align: center;
     position: relative;
     overflow: hidden;
 }
@@ -70,20 +69,19 @@ body {
 
 .profile-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start; /* Alineación a la izquierda */
+    align-items: flex-start; /* Alineación a la izquierda */
     position: relative;
     z-index: 1;
 }
 
 .profile-info {
-    text-align: center;
+    text-align: left; /* Alineación a la izquierda */
     max-width: 600px;
-    margin: 0 auto;
 }
 
 .name {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aptos', 'Montserrat', sans-serif;
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 5px;
@@ -104,7 +102,7 @@ body {
     margin-bottom: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Alineación a la izquierda */
 }
 
 .contact-info i {
@@ -123,8 +121,8 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0; /* Alineación a la izquierda */
+    transform: translateX(0); /* Eliminar transformación para alinear a la izquierda */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -176,7 +174,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aptos', 'Montserrat', sans-serif;
     font-weight: 600;
     color: var(--color-dark);
     transition: var(--transition);
@@ -240,7 +238,7 @@ body {
 }
 
 .project-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aptos', 'Montserrat', sans-serif;
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--color-primary);
@@ -348,7 +346,7 @@ body {
 }
 
 .video-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aptos', 'Montserrat', sans-serif;
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--color-primary);
@@ -364,7 +362,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aptos', 'Montserrat', sans-serif;
     font-weight: 600;
     transition: var(--transition);
 }
@@ -417,11 +415,11 @@ body {
 @media (max-width: 768px) {
     .profile-container {
         flex-direction: column;
-        text-align: center;
+        text-align: left; /* Mantenemos la alineación a la izquierda */
     }
     
     .profile-info {
-        text-align: center;
+        text-align: left; /* Mantenemos la alineación a la izquierda */
     }
     
     .tab-btn {
