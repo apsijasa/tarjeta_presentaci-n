@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro Deportivo All Play Belator Sports Santiago</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Agregar enlace al CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/unified-header.css">
     <style>
         :root {
             --primary-color: #0057b8;
@@ -13,12 +16,12 @@
             --light-color: #f8f9fa;
             --dark-color: #212529;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         .header-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, #003a7a 100%);
             color: white;
@@ -26,7 +29,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .header-section::after {
             content: '';
             position: absolute;
@@ -37,7 +40,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50% 0 0 50%;
         }
-        
+
         .section-title {
             color: var(--primary-color);
             font-weight: 700;
@@ -45,7 +48,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -55,7 +58,7 @@
             height: 4px;
             background-color: var(--primary-color);
         }
-        
+
         .area-card {
             border-radius: 8px;
             overflow: hidden;
@@ -63,32 +66,32 @@
             height: 100%;
             transition: transform 0.3s ease;
         }
-        
+
         .area-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .area-header {
             background-color: var(--primary-color);
             color: white;
             padding: 1rem;
         }
-        
+
         .area-body {
             padding: 1.5rem;
         }
-        
+
         .icon-feature {
             display: inline-flex;
             align-items: center;
             margin-bottom: 0.5rem;
         }
-        
+
         .icon-feature i {
             color: var(--primary-color);
             margin-right: 10px;
         }
-        
+
         .investment-badge {
             background-color: var(--primary-color);
             color: white;
@@ -98,23 +101,23 @@
             display: inline-block;
             margin-top: 1rem;
         }
-        
+
         .footer {
             background-color: var(--dark-color);
             color: white;
             padding: 3rem 0;
         }
-        
+
         .project-image {
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .overview-section {
             background-color: #f8f9fa;
             padding: 4rem 0;
         }
-        
+
         .note {
             background-color: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -124,6 +127,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header-section">
@@ -143,33 +147,39 @@
         </div>
     </header>
 
-    
+
     <!-- Overview Section -->
     <section class="overview-section">
         <div class="container">
             <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
         </div>
-    
+
         <div class="container">
             <h2 class="section-title">Visión General del Proyecto</h2>
             <div class="row">
                 <div class="col-lg-8">
                     <p>
-                        El proyecto All Play Belator Sports Santiago es un moderno centro deportivo y recreacional que ofrece múltiples 
-                        disciplinas deportivas en un solo lugar. Diseñado para todas las edades y niveles de habilidad, este centro 
-                        cuenta con instalaciones de primera categoría para deportes acuáticos, deportes de arena, actividades recreativas, 
+                        El proyecto All Play Belator Sports Santiago es un moderno centro deportivo y recreacional que
+                        ofrece múltiples
+                        disciplinas deportivas en un solo lugar. Diseñado para todas las edades y niveles de habilidad,
+                        este centro
+                        cuenta con instalaciones de primera categoría para deportes acuáticos, deportes de arena,
+                        actividades recreativas,
                         entretenimiento familiar, eSports y deportes outdoor.
                     </p>
                     <p>
-                        Con una inversión total estimada de $1,8 mil millones, este proyecto transformará el panorama deportivo de 
-                        Santiago, proporcionando espacios de alta calidad para la práctica deportiva, recreación y el desarrollo de 
+                        Con una inversión total estimada de $1,8 mil millones, este proyecto transformará el panorama
+                        deportivo de
+                        Santiago, proporcionando espacios de alta calidad para la práctica deportiva, recreación y el
+                        desarrollo de
                         comunidades saludables.
                     </p>
                 </div>
                 <div class="col-lg-4">
                     <div class="note">
                         <h5><i class="fas fa-info-circle me-2"></i> Nota importante</h5>
-                        <p>Los costos de obras civiles y obras de mitigación requeridos por los estudios de especialidad NO están considerados en el monto de inversión indicado.</p>
+                        <p>Los costos de obras civiles y obras de mitigación requeridos por los estudios de especialidad
+                            NO están considerados en el monto de inversión indicado.</p>
                     </div>
                 </div>
             </div>
@@ -201,13 +211,14 @@
                                 <span>Agua caliente sanitaria</span>
                             </div>
                             <p class="mt-3">
-                                Un espacio acuático completo con todas las comodidades para la práctica de natación y deportes acuáticos, 
+                                Un espacio acuático completo con todas las comodidades para la práctica de natación y
+                                deportes acuáticos,
                                 incluyendo instalaciones modernas y sistemas de climatización.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área de Arena -->
                 <div class="col-md-6 col-lg-4">
                     <div class="area-card">
@@ -220,14 +231,16 @@
                                 <span>3 canchas para deportes de arena</span>
                             </div>
                             <p class="mt-3">
-                                Comprende 3 modernas canchas especialmente diseñadas para la práctica de diversos deportes de arena, 
-                                como voleibol playa, fútbol playa y tenis playa, ofreciendo la experiencia de deportes playeros en 
+                                Comprende 3 modernas canchas especialmente diseñadas para la práctica de diversos
+                                deportes de arena,
+                                como voleibol playa, fútbol playa y tenis playa, ofreciendo la experiencia de deportes
+                                playeros en
                                 plena ciudad.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área Recreacional -->
                 <div class="col-md-6 col-lg-4">
                     <div class="area-card">
@@ -252,14 +265,16 @@
                                 <span>Centro de artes marciales</span>
                             </div>
                             <p class="mt-3">
-                                Un completo espacio para deportes recreativos que incluye múltiples canchas de baloncesto, 
-                                un área profesional para competiciones y un moderno centro para la práctica de diferentes 
+                                Un completo espacio para deportes recreativos que incluye múltiples canchas de
+                                baloncesto,
+                                un área profesional para competiciones y un moderno centro para la práctica de
+                                diferentes
                                 disciplinas de artes marciales.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área Familiar y eSports -->
                 <div class="col-md-6 col-lg-4">
                     <div class="area-card">
@@ -276,14 +291,16 @@
                                 <span>Juegos inflables</span>
                             </div>
                             <p class="mt-3">
-                                Un espacio dedicado a la diversión familiar y al creciente mundo de los deportes electrónicos, 
-                                donde niños y adultos pueden disfrutar de instalaciones modernas para videojuegos competitivos 
+                                Un espacio dedicado a la diversión familiar y al creciente mundo de los deportes
+                                electrónicos,
+                                donde niños y adultos pueden disfrutar de instalaciones modernas para videojuegos
+                                competitivos
                                 y entretenimiento infantil.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área Outdoor -->
                 <div class="col-md-6 col-lg-4">
                     <div class="area-card">
@@ -300,14 +317,16 @@
                                 <span>Boulder</span>
                             </div>
                             <p class="mt-3">
-                                Para los amantes de los deportes al aire libre, esta área ofrece instalaciones para escalada 
-                                deportiva y boulder, permitiendo a los entusiastas practicar y mejorar sus habilidades en un 
+                                Para los amantes de los deportes al aire libre, esta área ofrece instalaciones para
+                                escalada
+                                deportiva y boulder, permitiendo a los entusiastas practicar y mejorar sus habilidades
+                                en un
                                 entorno seguro y controlado.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área Proyecto -->
                 <div class="col-md-6 col-lg-4">
                     <div class="area-card">
@@ -332,7 +351,7 @@
                                 <span>Obras civiles</span>
                             </div>
                             <p class="mt-3 text-muted fst-italic">
-                                Nota: Los costos de obras civiles y obras de mitigación requeridos por los estudios de 
+                                Nota: Los costos de obras civiles y obras de mitigación requeridos por los estudios de
                                 especialidad NO están considerados en el monto de inversión indicado.
                             </p>
                         </div>
@@ -348,20 +367,26 @@
             <h2 class="section-title">Proyecto Relacionado: La Florida</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="/api/placeholder/600/400" alt="Proyecto La Florida" class="img-fluid project-image mb-4 mb-lg-0">
+                    <img src="/api/placeholder/600/400" alt="Proyecto La Florida"
+                        class="img-fluid project-image mb-4 mb-lg-0">
                 </div>
                 <div class="col-lg-6">
                     <h3>All Play Belator Sports La Florida</h3>
                     <p>
-                        Como parte de nuestra red de centros deportivos, también estamos desarrollando un completo centro en La Florida que incluye:
+                        Como parte de nuestra red de centros deportivos, también estamos desarrollando un completo
+                        centro en La Florida que incluye:
                     </p>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Centro de Deportes de Recreación y Outdoor</strong> (4.000 m² aprox)</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Centro de Deportes Acuáticos y de Arena</strong> (8.780 m² aprox)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Centro de
+                                Deportes de Recreación y Outdoor</strong> (4.000 m² aprox)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Centro de
+                                Deportes Acuáticos y de Arena</strong> (8.780 m² aprox)</li>
                     </ul>
                     <p>
-                        El proyecto La Florida transformará parte de la playa de estacionamientos instalada sobre el Easy en un 
-                        boulevard de actividades deportivas y recreativas para las familias, combinado con cafeterías y juegos para niños.
+                        El proyecto La Florida transformará parte de la playa de estacionamientos instalada sobre el
+                        Easy en un
+                        boulevard de actividades deportivas y recreativas para las familias, combinado con cafeterías y
+                        juegos para niños.
                     </p>
                     <a href="#" class="btn btn-primary mt-3">Ver Detalles de La Florida</a>
                 </div>
@@ -373,7 +398,8 @@
     <section class="py-5" style="background-color: var(--primary-color);">
         <div class="container text-center text-white">
             <h2 class="mb-4">¡Sé parte de nuestra comunidad deportiva!</h2>
-            <p class="lead mb-4">Descubre todos los beneficios que tenemos para ti y tu familia en nuestros centros deportivos.</p>
+            <p class="lead mb-4">Descubre todos los beneficios que tenemos para ti y tu familia en nuestros centros
+                deportivos.</p>
             <a href="#" class="btn btn-light btn-lg px-4 me-3">Contáctanos</a>
             <a href="#" class="btn btn-outline-light btn-lg px-4">Más Información</a>
         </div>
@@ -385,7 +411,8 @@
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 class="mb-4">All Play Belator Sports</h4>
-                    <p>Transformando el panorama deportivo de Chile con centros de última generación para todas las disciplinas.</p>
+                    <p>Transformando el panorama deportivo de Chile con centros de última generación para todas las
+                        disciplinas.</p>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h5 class="mb-4">Enlaces Rápidos</h5>
@@ -425,5 +452,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para implementar header unificado automáticamente -->
+    <script src="../assets/js/unified-header.js"></script>
 </body>
+
 </html>

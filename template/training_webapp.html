@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwimX Training - Web Application</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Agregar enlace al CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/unified-header.css">
     <style>
         /* Base styles */
         * {
@@ -27,7 +30,12 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin-bottom: 1rem;
             font-weight: 600;
             line-height: 1.2;
@@ -228,7 +236,8 @@
             gap: 2rem;
         }
 
-        .backend-details, .frontend-details {
+        .backend-details,
+        .frontend-details {
             background-color: #fff;
             padding: 1.5rem;
             border-radius: 8px;
@@ -410,6 +419,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0px);
@@ -430,6 +440,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -470,8 +481,10 @@
             </div>
             <div class="container">
                 <h2>Project Overview</h2>
-                <p>SwimX Training is a full-featured web application designed to streamline the management of swimming clubs. The system incorporates multiple roles, training programs, attendance tracking, and comprehensive analytics for swim coaches and administrators.</p>
-                
+                <p>SwimX Training is a full-featured web application designed to streamline the management of swimming
+                    clubs. The system incorporates multiple roles, training programs, attendance tracking, and
+                    comprehensive analytics for swim coaches and administrators.</p>
+
                 <div class="tech-stack">
                     <h3>Technologies Used</h3>
                     <ul class="tech-list">
@@ -494,42 +507,48 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>User Role Management</h3>
-                        <p>Multiple user roles including Administrator, Club Manager, Coach, Cashier, and Student, each with specific permissions and access levels.</p>
+                        <p>Multiple user roles including Administrator, Club Manager, Coach, Cashier, and Student, each
+                            with specific permissions and access levels.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-swimmer"></i>
                         </div>
                         <h3>Training Program Creation</h3>
-                        <p>Comprehensive tools for creating, editing, and managing swimming training programs with specific sets, techniques, and progressions.</p>
+                        <p>Comprehensive tools for creating, editing, and managing swimming training programs with
+                            specific sets, techniques, and progressions.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <h3>Attendance Tracking</h3>
-                        <p>Detailed attendance tracking for both club access and specific training sessions with reporting capabilities.</p>
+                        <p>Detailed attendance tracking for both club access and specific training sessions with
+                            reporting capabilities.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>Performance Analytics</h3>
-                        <p>Dashboards for individual swimmers and groups with analytics on progress, training completion, and performance metrics.</p>
+                        <p>Dashboards for individual swimmers and groups with analytics on progress, training
+                            completion, and performance metrics.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
                         <h3>Payment Processing</h3>
-                        <p>Integrated payment system for managing club memberships, training fees, and workshop registration.</p>
+                        <p>Integrated payment system for managing club memberships, training fees, and workshop
+                            registration.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-file-alt"></i>
                         </div>
                         <h3>Annual Planning</h3>
-                        <p>Advanced planning tools for creating annual training plans with periodization, competition planning, and detailed microcycles.</p>
+                        <p>Advanced planning tools for creating annual training plans with periodization, competition
+                            planning, and detailed microcycles.</p>
                     </div>
                 </div>
             </div>
@@ -538,25 +557,32 @@
         <section class="project-architecture">
             <div class="container">
                 <h2>System Architecture</h2>
-                <p>SwimX Training utilizes a client-server architecture offering flexibility and scalability to support multiple platforms from a central system. The application is developed with two different frameworks:</p>
-                
+                <p>SwimX Training utilizes a client-server architecture offering flexibility and scalability to support
+                    multiple platforms from a central system. The application is developed with two different
+                    frameworks:</p>
+
                 <div class="architecture-diagram">
                     <!-- If you don't have an actual diagram, using a placeholder -->
                     <div class="placeholder-image">
                         Architecture Diagram
                     </div>
                 </div>
-                
+
                 <div class="architecture-details">
                     <div class="backend-details">
                         <h3>Backend (Laravel)</h3>
-                        <p>The Laravel-based backend provides RESTful API services with token-based authentication. It manages data persistence, business logic, and integrates with external services for storage and notifications.</p>
-                        <p>Key configurations include database connections, email service integration, and S3 bucket storage settings.</p>
+                        <p>The Laravel-based backend provides RESTful API services with token-based authentication. It
+                            manages data persistence, business logic, and integrates with external services for storage
+                            and notifications.</p>
+                        <p>Key configurations include database connections, email service integration, and S3 bucket
+                            storage settings.</p>
                     </div>
-                    
+
                     <div class="frontend-details">
                         <h3>Frontend (Angular)</h3>
-                        <p>The Angular frontend delivers a responsive user interface that communicates with the backend through API calls. The application features role-specific dashboards and modules for different user types.</p>
+                        <p>The Angular frontend delivers a responsive user interface that communicates with the backend
+                            through API calls. The application features role-specific dashboards and modules for
+                            different user types.</p>
                         <p>Environment configurations handle API endpoint connectivity and base URL settings.</p>
                     </div>
                 </div>
@@ -569,11 +595,13 @@
                 <div class="modules-container">
                     <div class="module-item">
                         <h3>Student Management</h3>
-                        <p>Register, view, and edit student profiles with personal information, emergency contacts, and swimming metrics.</p>
+                        <p>Register, view, and edit student profiles with personal information, emergency contacts, and
+                            swimming metrics.</p>
                     </div>
                     <div class="module-item">
                         <h3>Training Management</h3>
-                        <p>Create and manage swimming workouts with specific sets, exercises, and training parameters.</p>
+                        <p>Create and manage swimming workouts with specific sets, exercises, and training parameters.
+                        </p>
                     </div>
                     <div class="module-item">
                         <h3>Workshop Management</h3>
@@ -585,7 +613,8 @@
                     </div>
                     <div class="module-item">
                         <h3>Payment Processing</h3>
-                        <p>Record, track, and manage student payments with different payment methods and receipt generation.</p>
+                        <p>Record, track, and manage student payments with different payment methods and receipt
+                            generation.</p>
                     </div>
                     <div class="module-item">
                         <h3>Attendance Tracking</h3>
@@ -597,7 +626,8 @@
                     </div>
                     <div class="module-item">
                         <h3>Dashboard & Analytics</h3>
-                        <p>Visual representation of training data, attendance statistics, and student performance metrics.</p>
+                        <p>Visual representation of training data, attendance statistics, and student performance
+                            metrics.</p>
                     </div>
                 </div>
             </div>
@@ -606,26 +636,30 @@
         <section class="project-implementation">
             <div class="container">
                 <h2>Implementation & Challenges</h2>
-                
+
                 <div class="implementation-details">
                     <div class="challenge">
                         <h3>User Role Management</h3>
-                        <p>Implemented a hierarchical permission system to ensure users could only access modules and data relevant to their role (Administrator, Manager, Coach, Cashier, Student).</p>
+                        <p>Implemented a hierarchical permission system to ensure users could only access modules and
+                            data relevant to their role (Administrator, Manager, Coach, Cashier, Student).</p>
                     </div>
-                    
+
                     <div class="challenge">
                         <h3>Training Planning</h3>
-                        <p>Developed a complex training planning system that allows coaches to create detailed workout plans with tracking for stroke types, energy zones, and training parameters.</p>
+                        <p>Developed a complex training planning system that allows coaches to create detailed workout
+                            plans with tracking for stroke types, energy zones, and training parameters.</p>
                     </div>
-                    
+
                     <div class="challenge">
                         <h3>Annual Planning</h3>
-                        <p>Created a visual calendar-based interface for annual training plans with periodization, competition periods, and advanced metrics tracking.</p>
+                        <p>Created a visual calendar-based interface for annual training plans with periodization,
+                            competition periods, and advanced metrics tracking.</p>
                     </div>
-                    
+
                     <div class="challenge">
                         <h3>API Architecture</h3>
-                        <p>Designed a comprehensive API with token-based authentication to ensure secure communication between frontend and backend components.</p>
+                        <p>Designed a comprehensive API with token-based authentication to ensure secure communication
+                            between frontend and backend components.</p>
                     </div>
                 </div>
             </div>
@@ -634,14 +668,19 @@
         <section class="project-conclusion">
             <div class="container">
                 <h2>Results & Learnings</h2>
-                <p>SwimX Training provides swimming clubs with a robust management solution that streamlines administrative tasks, enhances training program development, and offers valuable insights through analytics.</p>
-                
+                <p>SwimX Training provides swimming clubs with a robust management solution that streamlines
+                    administrative tasks, enhances training program development, and offers valuable insights through
+                    analytics.</p>
+
                 <div class="key-learnings">
                     <h3>Key Takeaways</h3>
                     <ul>
-                        <li>Building complex role-based systems requires careful planning of permissions and access controls</li>
-                        <li>Client-server architecture provides flexibility for future expansion to mobile platforms</li>
-                        <li>Dashboard visualizations help coaches and administrators quickly interpret performance data</li>
+                        <li>Building complex role-based systems requires careful planning of permissions and access
+                            controls</li>
+                        <li>Client-server architecture provides flexibility for future expansion to mobile platforms
+                        </li>
+                        <li>Dashboard visualizations help coaches and administrators quickly interpret performance data
+                        </li>
                         <li>Configuration files simplify deployment and environment management</li>
                     </ul>
                 </div>
@@ -676,11 +715,11 @@
             const burger = document.querySelector('.burger');
             const nav = document.querySelector('.nav-links');
             const navLinks = document.querySelectorAll('.nav-links li');
-            
+
             burger.addEventListener('click', () => {
                 // Toggle Nav
                 nav.classList.toggle('nav-active');
-                
+
                 // Animate Links
                 navLinks.forEach((link, index) => {
                     if (link.style.animation) {
@@ -689,13 +728,16 @@
                         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                     }
                 });
-                
+
                 // Burger Animation
                 burger.classList.toggle('toggle');
             });
         }
-        
+
         navSlide();
     </script>
+    <!-- Script para implementar header unificado automáticamente -->
+    <script src="../assets/js/unified-header.js"></script>
 </body>
+
 </html>

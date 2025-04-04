@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto de Drones Impresos en 3D</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Agregar enlace al CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/unified-header.css">
     <style>
         :root {
             --primary-color: #394867;
@@ -14,13 +17,13 @@
             --light-color: #F1F6F9;
             --dark-color: #212A3E;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-color);
             color: var(--dark-color);
         }
-        
+
         .hero-section {
             background: linear-gradient(rgba(33, 42, 62, 0.8), rgba(33, 42, 62, 0.8)), url('assets/drone-header.jpg');
             background-size: cover;
@@ -29,7 +32,7 @@
             padding: 100px 0;
             margin-bottom: 40px;
         }
-        
+
         .section-title {
             color: var(--primary-color);
             font-weight: 700;
@@ -37,7 +40,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -48,7 +51,7 @@
             bottom: 0;
             left: 0;
         }
-        
+
         .feature-box {
             padding: 20px;
             border-radius: 10px;
@@ -57,23 +60,23 @@
             height: 100%;
             transition: transform 0.3s ease;
         }
-        
+
         .feature-box:hover {
             transform: translateY(-5px);
         }
-        
+
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--secondary-color);
         }
-        
+
         .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .timeline::after {
             content: '';
             position: absolute;
@@ -84,14 +87,14 @@
             left: 50%;
             margin-left: -3px;
         }
-        
+
         .timeline-container {
             padding: 10px 40px;
             position: relative;
             background-color: inherit;
             width: 50%;
         }
-        
+
         .timeline-container::after {
             content: '';
             position: absolute;
@@ -104,15 +107,15 @@
             border-radius: 50%;
             z-index: 1;
         }
-        
+
         .left {
             left: 0;
         }
-        
+
         .right {
             left: 50%;
         }
-        
+
         .left::before {
             content: " ";
             height: 0;
@@ -125,7 +128,7 @@
             border-width: 10px 0 10px 10px;
             border-color: transparent transparent transparent white;
         }
-        
+
         .right::before {
             content: " ";
             height: 0;
@@ -138,11 +141,11 @@
             border-width: 10px 10px 10px 0;
             border-color: transparent white transparent transparent;
         }
-        
+
         .right::after {
             left: -16px;
         }
-        
+
         .timeline-content {
             padding: 20px 30px;
             background-color: white;
@@ -150,12 +153,12 @@
             border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .team-member {
             text-align: center;
             margin-bottom: 30px;
         }
-        
+
         .team-member img {
             width: 150px;
             height: 150px;
@@ -164,85 +167,86 @@
             margin-bottom: 15px;
             border: 5px solid var(--light-color);
         }
-        
+
         .team-member h5 {
             margin-bottom: 5px;
             color: var(--primary-color);
         }
-        
+
         .team-member p {
             color: var(--accent-color);
         }
-        
+
         .specs-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 30px;
         }
-        
-        .specs-table th, .specs-table td {
+
+        .specs-table th,
+        .specs-table td {
             padding: 12px 15px;
             border-bottom: 1px solid #ddd;
         }
-        
+
         .specs-table th {
             background-color: var(--secondary-color);
             color: white;
             text-align: left;
         }
-        
+
         .specs-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        
+
         .specs-table tr:hover {
             background-color: #ddd;
         }
-        
+
         .cost-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #ddd;
         }
-        
+
         .cost-item:last-child {
             border-bottom: none;
             font-weight: bold;
         }
-        
+
         .cost-category {
             flex: 1;
             font-weight: 500;
         }
-        
+
         .cost-description {
             flex: 2;
             color: var(--dark-color);
         }
-        
+
         .cost-value {
             flex: 1;
             text-align: right;
             color: var(--primary-color);
         }
-        
+
         .footer {
             background-color: var(--dark-color);
             color: white;
             padding: 30px 0;
             margin-top: 50px;
         }
-        
+
         .footer a {
             color: var(--light-color);
             text-decoration: none;
         }
-        
+
         .footer a:hover {
             color: var(--accent-color);
         }
-        
+
         .business-card {
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -250,41 +254,43 @@
             margin-bottom: 20px;
             background-color: white;
         }
-        
+
         .business-icon {
             font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 15px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .timeline::after {
                 left: 31px;
             }
-            
+
             .timeline-container {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-            
+
             .timeline-container::before {
                 left: 60px;
                 border: medium solid white;
                 border-width: 10px 10px 10px 0;
                 border-color: transparent white transparent transparent;
             }
-            
-            .left::after, .right::after {
+
+            .left::after,
+            .right::after {
                 left: 15px;
             }
-            
+
             .right {
                 left: 0%;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Hero Section -->
     <section class="hero-section text-center">
@@ -294,7 +300,7 @@
         </div>
     </section>
 
-    
+
     <!-- Main Content -->
     <div class="container">
 
@@ -306,8 +312,10 @@
             <h2 class="section-title">El Proyecto</h2>
             <div class="row">
                 <div class="col-md-8">
-                    <p>Nuestro proyecto busca desarrollar un drone funcional utilizando tecnología de impresión 3D, combinando diseño moderno, componentes electrónicos de alta calidad e inteligencia artificial para crear una solución versátil de vigilancia y monitoreo.</p>
-                    
+                    <p>Nuestro proyecto busca desarrollar un drone funcional utilizando tecnología de impresión 3D,
+                        combinando diseño moderno, componentes electrónicos de alta calidad e inteligencia artificial
+                        para crear una solución versátil de vigilancia y monitoreo.</p>
+
                     <h4 class="mt-4 mb-3">Objetivos Principales:</h4>
                     <ul>
                         <li>Fabricar un drone funcional utilizando impresión 3D</li>
@@ -336,7 +344,8 @@
                             <i class="fas fa-print"></i>
                         </div>
                         <h4>Fabricación con Impresión 3D</h4>
-                        <p>Utilizamos tecnología de impresión 3D para crear componentes personalizados y de bajo peso, permitiendo un diseño modular y fácil mantenimiento.</p>
+                        <p>Utilizamos tecnología de impresión 3D para crear componentes personalizados y de bajo peso,
+                            permitiendo un diseño modular y fácil mantenimiento.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -345,7 +354,8 @@
                             <i class="fas fa-battery-full"></i>
                         </div>
                         <h4>Larga Duración de Vuelo</h4>
-                        <p>Diseñado para vuelos prolongados con una duración de batería que supera las 4 horas, ideal para misiones de vigilancia y monitoreo continuo.</p>
+                        <p>Diseñado para vuelos prolongados con una duración de batería que supera las 4 horas, ideal
+                            para misiones de vigilancia y monitoreo continuo.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -354,7 +364,8 @@
                             <i class="fas fa-brain"></i>
                         </div>
                         <h4>Integración con IA</h4>
-                        <p>Incorporamos sistemas de inteligencia artificial para reconocimiento de objetos y análisis de datos en tiempo real.</p>
+                        <p>Incorporamos sistemas de inteligencia artificial para reconocimiento de objetos y análisis de
+                            datos en tiempo real.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -363,7 +374,8 @@
                             <i class="fas fa-tools"></i>
                         </div>
                         <h4>Fácil Mantenimiento</h4>
-                        <p>Componentes modulares que permiten una sustitución rápida y sencilla, reduciendo el tiempo de inactividad.</p>
+                        <p>Componentes modulares que permiten una sustitución rápida y sencilla, reduciendo el tiempo de
+                            inactividad.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -372,7 +384,8 @@
                             <i class="fas fa-camera"></i>
                         </div>
                         <h4>Sensores Múltiples</h4>
-                        <p>Capacidad para incorporar diferentes tipos de sensores según las necesidades específicas de cada misión.</p>
+                        <p>Capacidad para incorporar diferentes tipos de sensores según las necesidades específicas de
+                            cada misión.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -381,7 +394,8 @@
                             <i class="fas fa-wind"></i>
                         </div>
                         <h4>Diseño Aerodinámico</h4>
-                        <p>Estructura optimizada para eficiencia aerodinámica, basada en análisis CFD y pruebas de vuelo reales.</p>
+                        <p>Estructura optimizada para eficiencia aerodinámica, basada en análisis CFD y pruebas de vuelo
+                            reales.</p>
                     </div>
                 </div>
             </div>
@@ -475,7 +489,8 @@
                 <div class="timeline-container left">
                     <div class="timeline-content">
                         <h3>Fase 1: Diseño</h3>
-                        <p><strong>Concepto:</strong> Desarrollo del concepto del drone funcional para largas horas de vuelo con capacidad para diferentes sensores.</p>
+                        <p><strong>Concepto:</strong> Desarrollo del concepto del drone funcional para largas horas de
+                            vuelo con capacidad para diferentes sensores.</p>
                         <p><strong>Aerodinámica:</strong> Análisis y optimización aerodinámica mediante CFD.</p>
                         <p><strong>Diseño 3D:</strong> Creación del diseño completo para su posterior impresión.</p>
                     </div>
@@ -595,12 +610,14 @@
                             </div>
                             <div class="cost-item">
                                 <div class="cost-category">Materiales y componentes</div>
-                                <div class="cost-description">Componentes, sensores, electrónica en general y baterías</div>
+                                <div class="cost-description">Componentes, sensores, electrónica en general y baterías
+                                </div>
                                 <div class="cost-value">$1.500.000</div>
                             </div>
                             <div class="cost-item">
                                 <div class="cost-category">Mano de obra</div>
-                                <div class="cost-description">Armado, instalaciones eléctricas, electrónica, generación de software</div>
+                                <div class="cost-description">Armado, instalaciones eléctricas, electrónica, generación
+                                    de software</div>
                                 <div class="cost-value">$3.100.000</div>
                             </div>
                             <div class="cost-item">
@@ -717,5 +734,8 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para implementar header unificado automáticamente -->
+    <script src="../assets/js/unified-header.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,118 @@
+/* Estilos unificados para headers de todas las páginas de template */
+
+/* Variables globales */
+:root {
+    --header-primary: #34495e;
+    --header-secondary: #2c3e50;
+    --header-text: #ffffff;
+    --header-accent: #3498db;
+    --header-pattern-opacity: 0.1;
+    --border-radius: 0px;
+    --transition: all 0.3s ease;
+}
+
+/* Estilos base del header unificado */
+.unified-header {
+    background: linear-gradient(135deg, var(--header-primary), var(--header-secondary));
+    color: var(--header-text);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Patrón de fondo para todos los headers */
+.unified-header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="10" cy="10" r="3"/%3E%3C/g%3E%3C/svg%3E');
+    opacity: var(--header-pattern-opacity);
+    z-index: 0;
+}
+
+/* Animación de gradiente opcional */
+.unified-header.animated-bg {
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Contenido del header */
+.unified-header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Títulos */
+.unified-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.unified-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+/* Badges o etiquetas */
+.unified-header-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 5px 15px;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.unified-header-badge i {
+    margin-right: 5px;
+}
+
+/* Botón de navegación hacia atrás común */
+.unified-back-btn {
+    display: inline-flex;
+    align-items: center;
+    color: var(--header-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-bottom: 20px;
+}
+
+.unified-back-btn i {
+    margin-right: 10px;
+}
+
+.unified-back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .unified-header h1 {
+        font-size: 2rem;
+    }
+    
+    .unified-header p {
+        font-size: 1rem;
+    }
+}
