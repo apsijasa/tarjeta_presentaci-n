@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Análisis Estadístico Deportivo - Andrés Psijas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #34495e;
+            --color-secondary: #2c3e50;
+            --color-accent: #3498db;
+            --color-light: #fbfcfc;
+            --color-dark: #212529;
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aptos', 'Open Sans', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--color-dark);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 20L20 0L40 20L20 40z"/%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .image-showcase {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tech-tag {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-details h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .project-details p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .stats-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: var(--border-radius);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .methodology-section {
+            margin-top: 60px;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .method-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+        }
+
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .method-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tables-container {
+            margin-top: 30px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .data-table th {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            width: 100%;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>Análisis Estadístico Deportivo</h1>
+            <p>Transformando datos deportivos en información valiosa para mejorar el rendimiento de atletas y equipos</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="project-nav">
+            <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
+        </div>
+
+        <section class="project-section">
+            <h2>Visión General</h2>
+            <div class="two-columns">
+                <div class="content-card">
+                    <h3>Soluciones de Análisis Estadístico</h3>
+                    <p>Me especializo en el desarrollo de sistemas de análisis estadístico para deportes acuáticos, principalmente natación y waterpolo. Estos sistemas permiten a entrenadores, federaciones y atletas tomar decisiones basadas en datos concretos para mejorar el rendimiento.</p>
+                    
+                    <p>A través de la recopilación de datos específicos durante entrenamientos y competencias, desarrollo visualizaciones detalladas, métricas personalizadas y dashboards interactivos que transforman números en información accionable.</p>
+                    
+                    <p>Mi trabajo abarca desde el seguimiento del rendimiento individual de nadadores hasta el análisis táctico de equipos de waterpolo, proporcionando herramientas que ayudan a comprender patrones, identificar áreas de mejora y establecer objetivos realistas.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Excel Avanzado</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Data Visualization</span>
+                    </div>
+                </div>
+                <div class="image-showcase">
+                    <img src="/api/placeholder/600/400" alt="Dashboard de estadísticas deportivas">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Principales Proyectos Estadísticos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/250" alt="Estadísticas Waterpolo" class="project-image">
+                    <div class="project-details">
+                        <h3>Análisis Estadístico Sudamericano de Waterpolo</h3>
+                        <p>Desarrollo de un sistema completo de análisis para el Campeonato Sudamericano de Waterpolo realizado en Santiago 2022. La solución permitió el seguimiento en tiempo real de métricas clave como eficacia ofensiva, defensa, recuperaciones y posesiones.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Estadística Deportiva</span>
+                            <span class="tech-tag">Waterpolo</span>
+                            <span class="tech-tag">Competición</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/api/placeholder/400/250" alt="Análisis de Tiempos" class="project-image">
+                    <div class="project-details">
+                        <h3>Análisis de Tiempos de Competición Nacional</h3>
+                        <p>Estudio comparativo de los tiempos promedio en competiciones nacionales de natación por categoría de edad y género. Este análisis permitió establecer tendencias, comparar rendimientos entre temporadas y proporcionar información valiosa para la planificación de entrenamientos.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Natación</span>
+                            <span class="tech-tag">Análisis Temporal</span>
+                            <span class="tech-tag">Benchmarking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/api/placeholder/400/250" alt="Performance Reports" class="project-image">
+                    <div class="project-details">
+                        <h3>Informes de Rendimiento Individual</h3>
+                        <p>Desarrollo de informes detallados de rendimiento para nadadores individuales, incluyendo análisis de velocidad por segmentos, eficiencia de brazada, ritmo de carrera y comparativas con objetivos establecidos. Estos informes ayudan a los entrenadores a personalizar los entrenamientos.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Análisis Individual</span>
+                            <span class="tech-tag">Métricas de Rendimiento</span>
+                            <span class="tech-tag">Seguimiento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/api/placeholder/400/250" alt="Dashboard Alumno" class="project-image">
+                    <div class="project-details">
+                        <h3>Dashboard de Seguimiento de Atletas</h3>
+                        <p>Creación de dashboards interactivos para el seguimiento integral de deportistas, incluyendo asistencia a entrenamientos, distancia recorrida, tipos de entrenamiento, y progresión de rendimiento. Esta herramienta permite una visión completa del desarrollo del atleta.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Dashboard</span>
+                            <span class="tech-tag">Seguimiento</span>
+                            <span class="tech-tag">Visualización</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>Impacto del Análisis Estadístico</h2>
+            <p>El uso sistemático de datos y análisis estadístico ha permitido obtener mejoras significativas en diversos aspectos del rendimiento deportivo:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Mejora en tiempos de sprint</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23%</div>
+                    <div class="stat-label">Aumento en eficacia ofensiva</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35%</div>
+                    <div class="stat-label">Reducción de errores técnicos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Deportistas analizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Clubes implementando sistemas</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="methodology-section">
+            <h2>Metodología y Herramientas</h2>
+            
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis de Rendimiento</h3>
+                    <p>Utilizando técnicas estadísticas avanzadas para identificar patrones, tendencias y correlaciones en los datos de rendimiento deportivo que puedan no ser evidentes a primera vista.</p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Análisis de Video</h3>
+                    <p>Combinación de análisis estadístico con revisión de video para correlacionar métricas con aspectos técnicos y tácticos, permitiendo un feedback más completo y contextualizado.</p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Métricas Personalizadas</h3>
+                    <p>Desarrollo de indicadores específicos adaptados a las necesidades particulares de cada deporte, equipo o atleta, proporcionando información relevante y accionable.</p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Herramientas Tecnológicas</h3>
+                    <p>Implementación de soluciones tecnológicas avanzadas como Power BI, Tableau, Python y R para el procesamiento de datos y la creación de visualizaciones interactivas.</p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Análisis Comparativo</h3>
+                    <p>Benchmarking de rendimiento contra estándares nacionales e internacionales, permitiendo establecer objetivos realistas y medir el progreso relativo.</p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Informes Personalizados</h3>
+                    <p>Generación de informes detallados y dashboards interactivos adaptados a las necesidades específicas de entrenadores, atletas y organizaciones deportivas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Caso de Estudio: Análisis de Waterpolo</h2>
+            
+            <p>El análisis estadístico del Campeonato Sudamericano de Waterpolo 2022 permitió obtener información detallada sobre el rendimiento de los equipos, identificar patrones de juego y evaluar la efectividad de diferentes estrategias.</p>
+            
+            <div class="tables-container">
+                <h3 style="margin-top: 20px; margin-bottom: 15px;">Análisis de Efectividad Ofensiva por Equipo</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Goles</th>
+                            <th>Lanzamientos</th>
+                            <th>Efectividad</th>
+                            <th>Faltas Provocadas</th>
+                            <th>Recuperaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Equipo A</td>
+                            <td>58</td>
+                            <td>135</td>
+                            <td>43%</td>
+                            <td>32</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>Equipo B</td>
+                            <td>42</td>
+                            <td>112</td>
+                            <td>38%</td>
+                            <td>28</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td>Equipo C</td>
+                            <td>63</td>
+                            <td>145</td>
+                            <td>43%</td>
+                            <td>35</td>
+                            <td>52</td>
+                        </tr>
+                        <tr>
+                            <td>Equipo D</td>
+                            <td>37</td>
+                            <td>108</td>
+                            <td>34%</td>
+                            <td>25</td>
+                            <td>31</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="chart-container">
+                <h3 style="margin-bottom: 20px;">Distribución de Goles por Cuarto</h3>
+                <div style="width: 100%; height: 300px; background-color: #f5f7fa; border-radius: 8px; display: flex; justify-content: center; align-items: center;">
+                    <span style="color: #666;">Gráfico de barras mostrando la distribución de goles por cuarto</span>
+                </div>
+            </div>
+            
+            <div class="two-columns" style="margin-top: 30px;">
+                <div class="content-card">
+                    <h3>Hallazgos Clave</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Los equipos más efectivos mantenían un promedio de posesión de 30-35 segundos.</li>
+                        <li>El 68% de los goles se anotaron desde posiciones centrales.</li>
+                        <li>Los equipos ganadores tuvieron una efectividad defensiva superior al 65%.</li>
+                        <li>El rendimiento en el tercer cuarto fue decisivo en el 75% de los partidos.</li>
+                        <li>Los equipos con mayor número de recuperaciones ganaron el 80% de sus partidos.</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Recomendaciones Estratégicas</h3>
+                    <ol style="margin-left: 20px;">
+                        <li>Enfocarse en mejorar la efectividad ofensiva desde posiciones laterales.</li>
+                        <li>Implementar rotaciones específicas para mantener la intensidad en el tercer cuarto.</li>
+                        <li>Desarrollar situaciones de juego que provoquen faltas en posiciones favorables.</li>
+                        <li>Trabajar en la mejora de la defensa durante situaciones de superioridad numérica del oponente.</li>
+                        <li>Entrenar específicamente patrones de juego que aumenten las probabilidades de recuperación del balón.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Análisis de Rendimiento en Natación</h2>
+            
+            <p>Los informes de rendimiento individual en natación permiten un análisis detallado de cada aspecto del nadador, facilitando entrenamientos personalizados y mejora continua.</p>
+            
+            <div class="chart-container">
+                <h3 style="margin-bottom: 20px;">Comparativa de Tiempos por Categoría - 100m Libre</h3>
+                <div style="width: 100%; height: 300px; background-color: #f5f7fa; border-radius: 8px; display: flex; justify-content: center; align-items: center;">
+                    <span style="color: #666;">Gráfico de barras comparativo de tiempos promedio por categoría</span>
+                </div>
+            </div>
+            
+            <div class="two-columns" style="margin-top: 30px;">
+                <div class="content-card">
+                    <h3>Métricas Individuales Analizadas</h3>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Ritmo de carrera:</strong> Análisis de tiempo por cada 50m o 25m.</li>
+                        <li><strong>Eficiencia de brazada:</strong> Distancia por brazada y número de brazadas por largo.</li>
+                        <li><strong>Velocidad de salida:</strong> Tiempo hasta los primeros 15m.</li>
+                        <li><strong>Eficiencia de viraje:</strong> Tiempo de entrada y salida de cada viraje.</li>
+                        <li><strong>Distribución de energía:</strong> Análisis del decaimiento de velocidad.</li>
+                        <li><strong>Tiempo de reacción:</strong> En las salidas desde el partidor.</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Beneficios del Análisis</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Identificación precisa de fortalezas y áreas de mejora.</li>
+                        <li>Desarrollo de estrategias de carrera personalizadas.</li>
+                        <li>Establecimiento de objetivos realistas basados en datos.</li>
+                        <li>Seguimiento objetivo de la progresión del atleta.</li>
+                        <li>Optimización de técnicas específicas basada en métricas.</li>
+                        <li>Comparativa con estándares nacionales e internacionales.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button">Solicitar un Análisis Personalizado</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Andrés Psijas - Todos los derechos reservados</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@grupoatlas.cl">Contacto</a>
+        </div>
+    </footer>
+</body>
+</html>

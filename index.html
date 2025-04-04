@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Añadiendo la fuente Aptos -->
-    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aptos:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <!-- Referencia CDN directa de la biblioteca QRCode -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <!-- Agregar script de respaldo para QR Code con tipo MIME correcto -->
 </head>
+
 <body>
     <div class="card-container">
         <div class="card-header">
@@ -30,17 +34,20 @@
                         <li class="phone-item">
                             <i class="fas fa-phone"></i> <span id="phoneNumber">+56985095780</span>
                             <div class="phone-actions">
-                                <a href="tel:+56985095780" class="phone-action"><i class="fas fa-phone-alt"></i> Llamar</a>
-                                <a href="https://wa.me/56985095780" target="_blank" class="phone-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="tel:+56985095780" class="phone-action"><i class="fas fa-phone-alt"></i>
+                                    Llamar</a>
+                                <a href="https://wa.me/56985095780" target="_blank" class="phone-action"><i
+                                        class="fab fa-whatsapp"></i> WhatsApp</a>
                             </div>
                         </li>
                         <li><i class="fas fa-map-marker-alt"></i>Santiago, Chile</li>
-                        <li><i class="fas fa-globe"></i> <a href="http://www.grupoatlas.cl" target="_blank" class="website-link">www.grupoatlas.cl</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="http://www.grupoatlas.cl" target="_blank"
+                                class="website-link">www.grupoatlas.cl</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        
+
         <div class="tabs">
             <button class="tab-btn active" data-tab="about">Sobre mí</button>
             <button class="tab-btn" data-tab="projects">Proyectos</button>
@@ -48,12 +55,14 @@
             <button class="tab-btn" data-tab="videos">Videos</button>
             <button class="tab-btn" data-tab="qr">Código QR</button>
         </div>
-        
+
         <div id="about" class="tab-content active">
             <h2>Sobre mí</h2>
-            <p>¡Hola! Soy un desarrollador web y diseñador UX/UI apasionado por crear experiencias digitales atractivas e intuitivas. Me especializo en HTML, CSS, JavaScript y frameworks modernos como React y Vue.js.</p>
+            <p>¡Hola! Soy un desarrollador web y diseñador UX/UI apasionado por crear experiencias digitales atractivas
+                e intuitivas. Me especializo en HTML, CSS, JavaScript y frameworks modernos como React y Vue.js.</p>
             <br>
-            <p>Mi objetivo es combinar diseño y funcionalidad para desarrollar productos que no solo se vean bien, sino que también brinden una excelente experiencia al usuario.</p>
+            <p>Mi objetivo es combinar diseño y funcionalidad para desarrollar productos que no solo se vean bien, sino
+                que también brinden una excelente experiencia al usuario.</p>
             <br>
             <h3>Habilidades</h3>
             <div class="project-tags">
@@ -69,16 +78,17 @@
                 <span class="tag">Git</span>
             </div>
         </div>
-        
+
         <div id="projects" class="tab-content">
             <h2>Mis Proyectos</h2>
             <div class="projects-container">
-                
+
                 <div class="project-card">
                     <img src="#" alt="Proyecto 2" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">PMO EVA E-Sports</h3>
-                        <p class="project-description">Gerente de proyecto del primer proyecto de competencia en realidad virtual en Sudamerica.</p>
+                        <p class="project-description">Gerente de proyecto del primer proyecto de competencia en
+                            realidad virtual en Sudamerica.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -92,7 +102,8 @@
                     <img src="#" alt="Proyecto 2" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">PMO Desarrollo de Drones con impresión 3D</h3>
-                        <p class="project-description">Gerente de proyecto del primer desarrollo de drones a nivel nacional con impresión 3D.</p>
+                        <p class="project-description">Gerente de proyecto del primer desarrollo de drones a nivel
+                            nacional con impresión 3D.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -106,7 +117,8 @@
                     <img src="#" alt="Proyecto 2" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">PMO Proyecto Ciudad Mall CENCOSUD-Santiago</h3>
-                        <p class="project-description">Gerente de proyecto en el desarrollo deportivo de proyecto para la ciudad de Santiago.</p>
+                        <p class="project-description">Gerente de proyecto en el desarrollo deportivo de proyecto para
+                            la ciudad de Santiago.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -120,7 +132,8 @@
                     <img src="#" alt="Proyecto 2" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">PMO Proyecto Deportivo CENCOSUD</h3>
-                        <p class="project-description">Gerente de proyecto en el desarrollo deportivo de proyecto para la ciudad de Viña del Mar.</p>
+                        <p class="project-description">Gerente de proyecto en el desarrollo deportivo de proyecto para
+                            la ciudad de Viña del Mar.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -128,13 +141,30 @@
                         </div>
                         <a href="template/cenco.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
                     </div>
-                </div>    
+                </div>
+
+                <div class="project-card">
+                    <img src="#" alt="Proyecto 2" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Data Analisis deportivo</h3>
+                        <p class="project-description">Hemos desarrollado distintas medidas deportivas para ayudar tanto
+                            a los deportistas, clubes o federaciones en la recopilación de data deportiva. Estos datos
+                            sirven desde la mejora de rendimiento, hasta la implementación de politicas publicas</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <a href="template/estadisticas.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                    </div>
+                </div>
 
                 <div class="project-card">
                     <img src="#" alt="Proyecto 2" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Implementación apertura Piscina Municipal Lo Barnechea</h3>
-                        <p class="project-description">Asesor en el diseño de apertura, modelo de negocio, RRHH y otras implementaciones para la recepción.</p>
+                        <p class="project-description">Asesor en el diseño de apertura, modelo de negocio, RRHH y otras
+                            implementaciones para la recepción.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
@@ -143,12 +173,14 @@
                         <a href="template/barnechea_piscina.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
                     </div>
                 </div>
-                
+
                 <div class="project-card">
                     <img src="#" alt="Proyecto 3" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Levantamiento tecnico y eficiencia energetica Cerrillos</h3>
-                        <p class="project-description">Piscina municipal que lleva al menos 12 años cerrada por una mala construcción de esta, estuve a cargo del desarrollo del levantamiento tecnico y plan de recuperaación para la comunidad.</p>
+                        <p class="project-description">Piscina municipal que lleva al menos 12 años cerrada por una mala
+                            construcción de esta, estuve a cargo del desarrollo del levantamiento tecnico y plan de
+                            recuperaación para la comunidad.</p>
                         <div class="project-tags">
                             <span class="tag">Vue.js</span>
                             <span class="tag">Firebase</span>
@@ -157,26 +189,14 @@
                         <a href="template/cerrillos.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
                     </div>
                 </div>
-                
-                <div class="project-card">
-                    <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
-                    <div class="project-details">
-                        <h3 class="project-title">Analsis estadistico sudamericano WaterPolo</h3>
-                        <p class="project-description">Analisis de los partidos del sudamericano de waterpolo desarrollado en Santiago 2022 en piscina de Stadio Italiano.</p>
-                        <div class="project-tags">
-                            <span class="tag">D3.js</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Express</span>
-                        </div>
-                        <a href="template/analisis_deportivo.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
-                    </div>
-                </div>
+
 
                 <div class="project-card">
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">RenovaFit-Cento de atención online</h3>
-                        <p class="project-description">Pagina para clinica integral online para personas con problemas de obesidad, adultos mayores y personas sin tiempo de entrenamiento presencial.</p>
+                        <p class="project-description">Pagina para clinica integral online para personas con problemas
+                            de obesidad, adultos mayores y personas sin tiempo de entrenamiento presencial.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -190,7 +210,9 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Impulso Verde</h3>
-                        <p class="project-description">Desarrollo de pagina web tipo landing page y automatización en contacto, generación de cotizaciones y agente de AI, para pagina web  gestión de clientes.</p>
+                        <p class="project-description">Desarrollo de pagina web tipo landing page y automatización en
+                            contacto, generación de cotizaciones y agente de AI, para pagina web gestión de clientes.
+                        </p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -204,7 +226,11 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Levantamiento tecnico piscina municipal San Pedro de Atacama</h3>
-                        <p class="project-description">Unico recinto del pais ubicado en altura, ideal para poder desarrollar el deporte de alto rendimiento, esta piscina se encuentra abandonada hace casi 15 años debido a un aluvión, trabaje en el proceso de levantamiento tecnico y propuesta de proyecto para la busqueda de financiamiento e implementación del proyecto comunal y regional.</p>
+                        <p class="project-description">Unico recinto del pais ubicado en altura, ideal para poder
+                            desarrollar el deporte de alto rendimiento, esta piscina se encuentra abandonada hace casi
+                            15 años debido a un aluvión, trabaje en el proceso de levantamiento tecnico y propuesta de
+                            proyecto para la busqueda de financiamiento e implementación del proyecto comunal y
+                            regional.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -224,7 +250,8 @@
                             <span class="tag">React</span>
                             <span class="tag">Express</span>
                         </div>
-                        <a href="template/factibilidad_energia.html" class="btn" style="margin-top: 10px;">Ver proyecto</a>
+                        <a href="template/factibilidad_energia.html" class="btn" style="margin-top: 10px;">Ver
+                            proyecto</a>
                     </div>
                 </div>
 
@@ -232,7 +259,9 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Proyecto Ciudad Deportiva Sport Pirque</h3>
-                        <p class="project-description">PMO para la consutrucción e implementación de la ciudad deportiva Sport Pirque, la cual se encuentra funcionando hace 5 años, actualmente no encontramos trabajando en el proyecto de financiamiento y construcción de la piscina semi olimpica.</p>
+                        <p class="project-description">PMO para la consutrucción e implementación de la ciudad deportiva
+                            Sport Pirque, la cual se encuentra funcionando hace 5 años, actualmente no encontramos
+                            trabajando en el proyecto de financiamiento y construcción de la piscina semi olimpica.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -246,7 +275,8 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Recuperación Piscina Municipal Lo Prado</h3>
-                        <p class="project-description">Dirigi y administre todo el desarrollo del recinto que se encontraba sin uso para la municipalidad de Lo Prado.</p>
+                        <p class="project-description">Dirigi y administre todo el desarrollo del recinto que se
+                            encontraba sin uso para la municipalidad de Lo Prado.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -260,7 +290,8 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">WebApp desarrollo entrenamiento</h3>
-                        <p class="project-description">Programa de registro y administración online para piscinas privadas y publicas.</p>
+                        <p class="project-description">Programa de registro y administración online para piscinas
+                            privadas y publicas.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -274,7 +305,9 @@
                     <img src="/api/placeholder/250/150" alt="Proyecto 4" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Estadisticas deportivas</h3>
-                        <p class="project-description">Desarrolle los primeros informes estadisticos para la FECHIDA sobre la realidad de la nataación chilena a nivel naacional para la mejor toma de desiciones de politicas publicas.</p>
+                        <p class="project-description">Desarrolle los primeros informes estadisticos para la FECHIDA
+                            sobre la realidad de la nataación chilena a nivel naacional para la mejor toma de desiciones
+                            de politicas publicas.</p>
                         <div class="project-tags">
                             <span class="tag">D3.js</span>
                             <span class="tag">React</span>
@@ -288,7 +321,9 @@
                     <img src="#" alt="Proyecto 1" class="project-image">
                     <div class="project-details">
                         <h3 class="project-title">Eficiencia energetica Piscina Municipal Ñuñoa</h3>
-                        <p class="project-description">Desarrollo, construcción e implementación de la piscina municipal de Ñuñoa para su recuperación, ademas de implementar elementos de eficienta hidrica y energetica.</p>
+                        <p class="project-description">Desarrollo, construcción e implementación de la piscina municipal
+                            de Ñuñoa para su recuperación, ademas de implementar elementos de eficienta hidrica y
+                            energetica.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -299,7 +334,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="social" class="tab-content">
             <h2>Mis Redes Sociales</h2>
             <div class="social-container">
@@ -323,28 +358,34 @@
                 </a>
             </div>
         </div>
-        
+
         <div id="videos" class="tab-content">
             <h2>Mis Videos</h2>
             <div class="videos-container">
                 <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                     <div class="video-details">
                         <h3 class="video-title">Tutorial de HTML y CSS</h3>
-                        <p class="project-description">Aprende los fundamentos del desarrollo web con este tutorial paso a paso.</p>
+                        <p class="project-description">Aprende los fundamentos del desarrollo web con este tutorial paso
+                            a paso.</p>
                     </div>
                 </div>
-                
+
                 <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                     <div class="video-details">
                         <h3 class="video-title">Curso de JavaScript</h3>
-                        <p class="project-description">Domina JavaScript con esta serie de videos desde nivel básico hasta avanzado.</p>
+                        <p class="project-description">Domina JavaScript con esta serie de videos desde nivel básico
+                            hasta avanzado.</p>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div id="qr" class="tab-content">
             <h2>Mi Código QR</h2>
             <div class="qr-section">
@@ -360,152 +401,153 @@
     <script src="threads.js"></script>
     <!-- Incluir script QR fallback -->
     <script type="text/javascript">
-    /**
-     * QR Code Fallback - Script simple para generar códigos QR en caso de que la biblioteca principal falle
-     */
-    
-    // Función para crear un QR Code manualmente en un canvas si la biblioteca principal falla
-    function createFallbackQRCode(container, text) {
-        if (!container) return;
-        
-        // Limpiar el contenedor
-        container.innerHTML = '';
-        
-        // Crear un canvas
-        const canvas = document.createElement('canvas');
-        const size = 200;
-        canvas.width = size;
-        canvas.height = size;
-        
-        const ctx = canvas.getContext('2d');
-        
-        // Dibujar un mensaje de que estamos generando un QR de respaldo
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, size, size);
-        
-        ctx.fillStyle = '#34495e';
-        ctx.font = '16px Aptos, Arial, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Generando QR', size/2, size/2 - 20);
-        ctx.fillText('Código de contacto', size/2, size/2);
-        
-        // Dibujar un borde para simular un QR
-        ctx.strokeStyle = '#34495e';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(20, 20, size - 40, size - 40);
-        
-        // Dibujar algunos patrones para que se parezca a un QR
-        const blockSize = 10;
-        const patterns = [
-            [0, 0, 1, 1, 1, 1, 1, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 1, 0],
-            [1, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 0, 0, 1, 0, 1, 0, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 0, 1, 0, 1, 0, 0, 1],
-            [1, 0, 1, 0, 0, 0, 1, 0, 1],
-            [0, 1, 0, 0, 0, 0, 0, 1, 0],
-            [0, 0, 1, 1, 1, 1, 1, 0, 0]
-        ];
-        
-        // Dibujar los patrones en las esquinas (3)
-        function drawPattern(x, y) {
-            for (let i = 0; i < patterns.length; i++) {
-                for (let j = 0; j < patterns[i].length; j++) {
-                    if (patterns[i][j]) {
-                        ctx.fillRect(x + j * blockSize, y + i * blockSize, blockSize, blockSize);
-                    }
-                }
-            }
-        }
-        
-        // Esquina superior izquierda
-        drawPattern(40, 40);
-        
-        // Esquina superior derecha
-        drawPattern(size - 40 - patterns.length * blockSize, 40);
-        
-        // Esquina inferior izquierda
-        drawPattern(40, size - 40 - patterns.length * blockSize);
-        
-        // Agregar algunos bloques aleatorios para simular datos
-        for (let i = 0; i < 30; i++) {
-            const x = Math.floor(Math.random() * (size - 40)) + 20;
-            const y = Math.floor(Math.random() * (size - 40)) + 20;
-            if ((x < 120 && y < 120) || (x > size - 120 && y < 120) || (x < 120 && y > size - 120)) {
-                continue; // No sobrescribir los patrones de las esquinas
-            }
-            ctx.fillRect(x, y, blockSize, blockSize);
-        }
-        
-        // Agregar el canvas al contenedor
-        container.appendChild(canvas);
-        
-        return canvas;
-    }
-    
-    // Función para intentar crear un código QR usando la biblioteca principal,
-    // pero con fallback a nuestra implementación simple si falla
-    function createQRCodeWithFallback(containerId, text) {
-        const container = document.getElementById(containerId);
-        if (!container) return null;
-        
-        // Intentar usar la biblioteca principal primero
-        try {
-            if (typeof qrcode !== 'undefined') {
-                // Si estamos usando qrcode-generator
-                // Usamos un tipo más alto para permitir más datos
-                const qr = qrcode(8, 'L'); // Cambiado a tipo 8 y corrección L (menor corrección = más capacidad)
-                qr.addData(text);
-                qr.make();
-                
-                const canvas = document.createElement('canvas');
-                const size = 200;
-                canvas.width = size;
-                canvas.height = size;
-                
-                const ctx = canvas.getContext('2d');
-                const moduleCount = qr.getModuleCount();
-                const moduleSize = size / moduleCount;
-                
-                // Fondo
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(0, 0, size, size);
-                
-                // Dibujar los módulos del QR
-                ctx.fillStyle = '#34495e';
-                
-                for (let row = 0; row < moduleCount; row++) {
-                    for (let col = 0; col < moduleCount; col++) {
-                        if (qr.isDark(row, col)) {
-                            ctx.fillRect(
-                                col * moduleSize,
-                                row * moduleSize,
-                                moduleSize,
-                                moduleSize
-                            );
+        /**
+         * QR Code Fallback - Script simple para generar códigos QR en caso de que la biblioteca principal falle
+         */
+
+        // Función para crear un QR Code manualmente en un canvas si la biblioteca principal falla
+        function createFallbackQRCode(container, text) {
+            if (!container) return;
+
+            // Limpiar el contenedor
+            container.innerHTML = '';
+
+            // Crear un canvas
+            const canvas = document.createElement('canvas');
+            const size = 200;
+            canvas.width = size;
+            canvas.height = size;
+
+            const ctx = canvas.getContext('2d');
+
+            // Dibujar un mensaje de que estamos generando un QR de respaldo
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, size, size);
+
+            ctx.fillStyle = '#34495e';
+            ctx.font = '16px Aptos, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Generando QR', size / 2, size / 2 - 20);
+            ctx.fillText('Código de contacto', size / 2, size / 2);
+
+            // Dibujar un borde para simular un QR
+            ctx.strokeStyle = '#34495e';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(20, 20, size - 40, size - 40);
+
+            // Dibujar algunos patrones para que se parezca a un QR
+            const blockSize = 10;
+            const patterns = [
+                [0, 0, 1, 1, 1, 1, 1, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 1, 0],
+                [1, 0, 1, 0, 0, 0, 1, 0, 1],
+                [1, 0, 0, 1, 0, 1, 0, 0, 1],
+                [1, 0, 0, 0, 1, 0, 0, 0, 1],
+                [1, 0, 0, 1, 0, 1, 0, 0, 1],
+                [1, 0, 1, 0, 0, 0, 1, 0, 1],
+                [0, 1, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 1, 1, 1, 1, 1, 0, 0]
+            ];
+
+            // Dibujar los patrones en las esquinas (3)
+            function drawPattern(x, y) {
+                for (let i = 0; i < patterns.length; i++) {
+                    for (let j = 0; j < patterns[i].length; j++) {
+                        if (patterns[i][j]) {
+                            ctx.fillRect(x + j * blockSize, y + i * blockSize, blockSize, blockSize);
                         }
                     }
                 }
-                
-                // Limpiar y agregar el canvas
-                container.innerHTML = '';
-                container.appendChild(canvas);
-                
-                return canvas;
-            } else {
-                throw new Error('Biblioteca QR no disponible');
             }
-        } catch (error) {
-            console.error('Error al usar la biblioteca QR principal:', error);
-            console.log('Usando generador de QR de respaldo');
-            return createFallbackQRCode(container, text);
+
+            // Esquina superior izquierda
+            drawPattern(40, 40);
+
+            // Esquina superior derecha
+            drawPattern(size - 40 - patterns.length * blockSize, 40);
+
+            // Esquina inferior izquierda
+            drawPattern(40, size - 40 - patterns.length * blockSize);
+
+            // Agregar algunos bloques aleatorios para simular datos
+            for (let i = 0; i < 30; i++) {
+                const x = Math.floor(Math.random() * (size - 40)) + 20;
+                const y = Math.floor(Math.random() * (size - 40)) + 20;
+                if ((x < 120 && y < 120) || (x > size - 120 && y < 120) || (x < 120 && y > size - 120)) {
+                    continue; // No sobrescribir los patrones de las esquinas
+                }
+                ctx.fillRect(x, y, blockSize, blockSize);
+            }
+
+            // Agregar el canvas al contenedor
+            container.appendChild(canvas);
+
+            return canvas;
         }
-    }
-    
-    // Exponer función globalmente para que pueda ser utilizada desde scripts.js
-    window.createQRCodeWithFallback = createQRCodeWithFallback;
+
+        // Función para intentar crear un código QR usando la biblioteca principal,
+        // pero con fallback a nuestra implementación simple si falla
+        function createQRCodeWithFallback(containerId, text) {
+            const container = document.getElementById(containerId);
+            if (!container) return null;
+
+            // Intentar usar la biblioteca principal primero
+            try {
+                if (typeof qrcode !== 'undefined') {
+                    // Si estamos usando qrcode-generator
+                    // Usamos un tipo más alto para permitir más datos
+                    const qr = qrcode(8, 'L'); // Cambiado a tipo 8 y corrección L (menor corrección = más capacidad)
+                    qr.addData(text);
+                    qr.make();
+
+                    const canvas = document.createElement('canvas');
+                    const size = 200;
+                    canvas.width = size;
+                    canvas.height = size;
+
+                    const ctx = canvas.getContext('2d');
+                    const moduleCount = qr.getModuleCount();
+                    const moduleSize = size / moduleCount;
+
+                    // Fondo
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, size, size);
+
+                    // Dibujar los módulos del QR
+                    ctx.fillStyle = '#34495e';
+
+                    for (let row = 0; row < moduleCount; row++) {
+                        for (let col = 0; col < moduleCount; col++) {
+                            if (qr.isDark(row, col)) {
+                                ctx.fillRect(
+                                    col * moduleSize,
+                                    row * moduleSize,
+                                    moduleSize,
+                                    moduleSize
+                                );
+                            }
+                        }
+                    }
+
+                    // Limpiar y agregar el canvas
+                    container.innerHTML = '';
+                    container.appendChild(canvas);
+
+                    return canvas;
+                } else {
+                    throw new Error('Biblioteca QR no disponible');
+                }
+            } catch (error) {
+                console.error('Error al usar la biblioteca QR principal:', error);
+                console.log('Usando generador de QR de respaldo');
+                return createFallbackQRCode(container, text);
+            }
+        }
+
+        // Exponer función globalmente para que pueda ser utilizada desde scripts.js
+        window.createQRCodeWithFallback = createQRCodeWithFallback;
     </script>
     <script src="scripts.js"></script>
 </body>
+
 </html>
