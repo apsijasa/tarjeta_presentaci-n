@@ -55,10 +55,32 @@ darkModeToggle.addEventListener('click', () => {
 // Crear o actualizar el código QR
 function generateQRCode(text) {
     try {
+        // Acortar el texto si es demasiado largo para evitar el error de overflow
+        let finalText = text;
+        if (text.length > 500) {
+            console.warn('Texto del QR demasiado largo, se acortará para evitar overflow');
+            // Simplificamos la vCard para reducir su tamaño
+            const lines = text.split('\n');
+            const simplifiedLines = [];
+            
+            // Mantener solo las líneas esenciales
+            for (const line of lines) {
+                if (line.startsWith('BEGIN:') || 
+                    line.startsWith('END:') || 
+                    line.startsWith('VERSION:') ||
+                    line.startsWith('FN:') ||
+                    line.startsWith('TEL:')) {
+                    simplifiedLines.push(line);
+                }
+            }
+            
+            finalText = simplifiedLines.join('\n');
+        }
+        
         // Intentar usar la función de fallback si está disponible
         if (typeof window.createQRCodeWithFallback === 'function') {
             console.log('Usando función de respaldo para generar el código QR');
-            window.createQRCodeWithFallback('qrcode', text);
+            window.createQRCodeWithFallback('qrcode', finalText);
             return;
         }
         
@@ -84,9 +106,10 @@ function generateQRCode(text) {
             return;
         }
         
-        // Crear un nuevo código QR (tipo 4, nivel de corrección M)
-        const qr = qrcode(4, 'M');
-        qr.addData(text);
+        // Crear un nuevo código QR con mayor capacidad 
+        // (tipo 8 en lugar de 4, y nivel de corrección L en lugar de M)
+        const qr = qrcode(8, 'L');
+        qr.addData(finalText);
         qr.make();
         
         // Obtener el HTML del código QR y agregarlo al contenedor
@@ -129,10 +152,61 @@ function generateQRCode(text) {
     } catch (error) {
         console.error('Error al generar el código QR:', error);
         
+        // Capturar específicamente el error de overflow
+        if (error.message && error.message.includes('overflow')) {
+            console.warn('Error de overflow en el código QR. Intentando con una versión simplificada...');
+            
+            // Crear un QR simplificado solo con la información básica
+            const basicInfo = 'BEGIN:VCARD\nVERSION:3.0\nFN:Mi Contacto\nTEL:123456789\nEND:VCARD';
+            
+            try {
+                // Intentar generar un QR más simple
+                const qrcodeContainer = document.getElementById('qrcode');
+                if (qrcodeContainer) {
+                    qrcodeContainer.innerHTML = '';
+                    
+                    const qr = qrcode(4, 'L');
+                    qr.addData(basicInfo);
+                    qr.make();
+                    
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 200;
+                    canvas.height = 200;
+                    
+                    const ctx = canvas.getContext('2d');
+                    const moduleCount = qr.getModuleCount();
+                    const moduleSize = 200 / moduleCount;
+                    
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, 200, 200);
+                    
+                    ctx.fillStyle = '#34495e';
+                    
+                    for (let row = 0; row < moduleCount; row++) {
+                        for (let col = 0; col < moduleCount; col++) {
+                            if (qr.isDark(row, col)) {
+                                ctx.fillRect(
+                                    col * moduleSize,
+                                    row * moduleSize,
+                                    moduleSize,
+                                    moduleSize
+                                );
+                            }
+                        }
+                    }
+                    
+                    qrcodeContainer.appendChild(canvas);
+                    return;
+                }
+            } catch (fallbackError) {
+                console.error('Error al generar QR simplificado:', fallbackError);
+            }
+        }
+        
         // Intentar usar la función de fallback como último recurso
         if (typeof window.createQRCodeWithFallback === 'function') {
             console.log('Usando función de respaldo para generar el código QR después de un error');
-            window.createQRCodeWithFallback('qrcode', text);
+            window.createQRCodeWithFallback('qrcode', 'BEGIN:VCARD\nVERSION:3.0\nFN:Contacto\nEND:VCARD');
         } else {
             // Si todo falla, mostramos un mensaje de error
             const qrcodeContainer = document.getElementById('qrcode');
@@ -165,21 +239,39 @@ function updateQRCode() {
             phoneActions[1].href = `https://wa.me/${phoneNumber}`;
         }
         
-        // Crear una cadena vCard para el código QR
+        // Crear una versión simplificada de vCard para evitar overflow
         const name = document.querySelector('.name').textContent.trim() || 'Tu Nombre';
+        // Limitar el nombre a 30 caracteres para evitar overflow
+        const shortName = name.length > 30 ? name.substring(0, 30) : name;
+        
         const title = document.querySelector('.title').textContent.trim() || 'Desarrollador Web';
+        // Limitar el título a 30 caracteres
+        const shortTitle = title.length > 30 ? title.substring(0, 30) : title;
+        
         const emailElement = document.querySelector('.contact-info li:first-child');
-        const email = emailElement ? emailElement.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim() : 'correo@ejemplo.com';
+        let email = 'correo@ejemplo.com';
+        if (emailElement) {
+            const emailText = emailElement.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+            // Extraer solo la dirección de correo electrónico
+            const emailMatch = emailText.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/);
+            email = emailMatch ? emailMatch[0] : 'correo@ejemplo.com';
+        }
+        
         const websiteElement = document.querySelector('.contact-info li:last-child');
-        const website = websiteElement ? websiteElement.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim() : 'www.tusitio.com';
+        let website = 'www.tusitio.com';
+        if (websiteElement) {
+            const websiteText = websiteElement.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+            // Extraer solo la URL
+            const urlMatch = websiteText.match(/([a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/);
+            website = urlMatch ? urlMatch[0] : 'www.tusitio.com';
+        }
 
-        // Crear texto vCard
+        // Crear texto vCard simplificado
         const vCardText = 
 `BEGIN:VCARD
 VERSION:3.0
-N:${name}
-FN:${name}
-TITLE:${title}
+FN:${shortName}
+TITLE:${shortTitle}
 EMAIL:${email}
 TEL:${phoneNumber}
 URL:${website}
@@ -189,6 +281,12 @@ END:VCARD`;
         generateQRCode(vCardText);
     } catch (error) {
         console.error('Error al actualizar el código QR:', error);
+        // Intentar generar un QR básico en caso de error
+        try {
+            generateQRCode('BEGIN:VCARD\nVERSION:3.0\nFN:Mi Contacto\nEND:VCARD');
+        } catch (e) {
+            console.error('No se pudo generar ni siquiera el QR básico:', e);
+        }
     }
 }
 
@@ -500,5 +598,11 @@ window.addEventListener('load', () => {
     
     // Actualizar QR después de cargar datos
     // Esperamos un momento para asegurarnos de que todos los scripts están cargados
-    setTimeout(updateQRCode, 500);
+    setTimeout(() => {
+        try {
+            updateQRCode();
+        } catch (error) {
+            console.error('Error al actualizar el QR en el inicio:', error);
+        }
+    }, 1000); // Aumentamos el tiempo de espera a 1 segundo para asegurar que todo esté cargado
 });

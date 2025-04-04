@@ -92,7 +92,8 @@ function createQRCodeWithFallback(containerId, text) {
     try {
         if (typeof qrcode !== 'undefined') {
             // Si estamos usando qrcode-generator
-            const qr = qrcode(4, 'M');
+            // Usamos un tipo más alto para permitir más datos
+            const qr = qrcode(8, 'L'); // Cambiado a tipo 8 y corrección L (menor corrección = más capacidad)
             qr.addData(text);
             qr.make();
             
