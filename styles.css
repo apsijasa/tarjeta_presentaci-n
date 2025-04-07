@@ -232,6 +232,11 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
+    padding-bottom: 60px; /* Espacio para el botón */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -247,6 +252,9 @@ body {
 
 .project-details {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-title {
@@ -274,6 +282,17 @@ body {
     padding: 3px 8px;
     border-radius: 12px;
     font-size: 0.75rem;
+}
+
+.project-details .btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0 !important; /* Eliminar cualquier margen superior existente */
+    width: auto;
+    min-width: 120px; /* Ancho mínimo para uniformidad */
+    text-align: center;
 }
 
 /* Redes sociales */
