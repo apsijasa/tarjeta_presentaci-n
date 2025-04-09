@@ -266,7 +266,10 @@ function updateQRCode() {
             website = urlMatch ? urlMatch[0] : 'www.tusitio.com';
         }
 
-        // Crear texto vCard simplificado
+        // Añadir URL de la tarjeta de presentación digital como segundo enlace
+        const digitalCardUrl = "https://apsijasa.github.io/tarjeta_presentacion/";
+
+        // Crear texto vCard simplificado con ambos enlaces
         const vCardText = 
 `BEGIN:VCARD
 VERSION:3.0
@@ -275,15 +278,21 @@ TITLE:${shortTitle}
 EMAIL:${email}
 TEL:${phoneNumber}
 URL:${website}
+URL:${digitalCardUrl}
+NOTE:Sitio web: ${website} | Tarjeta digital: ${digitalCardUrl}
 END:VCARD`;
 
         // Generar el código QR
         generateQRCode(vCardText);
+        
+        // Mostrar mensaje de éxito en consola para verificación
+        console.log('Código QR actualizado con información de contacto y ambos enlaces web');
     } catch (error) {
         console.error('Error al actualizar el código QR:', error);
         // Intentar generar un QR básico en caso de error
         try {
-            generateQRCode('BEGIN:VCARD\nVERSION:3.0\nFN:Mi Contacto\nEND:VCARD');
+            // QR básico con ambos enlaces
+            generateQRCode('BEGIN:VCARD\nVERSION:3.0\nFN:Mi Contacto\nURL:www.grupoatlas.cl\nURL:https://apsijasa.github.io/tarjeta_presentacion/\nEND:VCARD');
         } catch (e) {
             console.error('No se pudo generar ni siquiera el QR básico:', e);
         }
