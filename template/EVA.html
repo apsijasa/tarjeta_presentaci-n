@@ -347,6 +347,23 @@
             box-shadow: var(--shadow);
         }
 
+        /* Video container styles */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            display: block;
+            border: none;
+        }
+
         @media (max-width: 768px) {
 
             .grid-layout,
@@ -369,6 +386,10 @@
             .specs-list li strong {
                 margin-bottom: 5px;
             }
+
+            .video-container iframe {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -390,10 +411,13 @@
         <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portafolio</a>
     </div>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/uhBvwM0eEnI?si=qvYVgmtI24CvsQc8"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Video container con margen y centrado -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/uhBvwM0eEnI?si=mAqv0YWSq_Q8JYp-"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 
     <section class="section">
         <div class="container">
